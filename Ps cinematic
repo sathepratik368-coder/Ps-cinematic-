@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PS CINEMATIC - Video Editing</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,Arial,sans-serif;background:#0f0f12;color:#f2f2f2}
+.w{max-width:640px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:28px;margin:8px 0}.sub{color:#aaa;margin:0 0 20px}
+.card{background:#1a1a20;border-radius:14px;padding:16px;margin:16px 0}
+.p{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #2c2c35}.p:last-child{border:0}
+.p b{display:block}.p small{color:#999}.pr{color:#ff4d4d;font-weight:700;white-space:nowrap}
+label{display:block;margin-top:12px;font-size:14px;color:#ccc}
+input,select,textarea{width:100%;padding:12px;margin-top:6px;font:inherit;font-size:16px;border-radius:8px;border:1px solid #333;background:#0f0f12;color:#fff}
+button{margin-top:18px;width:100%;padding:14px;font-size:17px;font-weight:700;border:0;border-radius:10px;background:#e11d2e;color:#fff}
+button:disabled{opacity:.6}.ok{color:#5ee07a;font-weight:700}.err{color:#ff8080}.by{text-align:center;color:#888;margin-top:24px}
+</style></head><body><div class="w">
+<h1>PS CINEMATIC</h1><p class="sub">Video editing at student prices. Pick a package, send your video link, and I will contact you.</p>
+<div class="card"><div id="prices"></div></div>
+<div class="card" id="box">
+<label>Your name<input id="name"></label>
+<label>WhatsApp number or Instagram<input id="contact"></label>
+<label>Link to your video (Google Drive / YouTube)<input id="link"></label>
+<label>Edit type<select id="edit"></select></label>
+<label>Notes (style, music, deadline)<textarea id="notes" rows="3"></textarea></label>
+<button id="go">Send order</button><p id="msg"></p></div>
+<p class="by">Made by Pratik</p></div>
+<script>
+var NTFY_TOPIC='pscinematic-a6ab51ea2402';
+var PRICES=[
+ {name:'Short video (up to 1 min)',price:199,detail:'Cuts, captions, music sync'},
+ {name:'Reel / Short with effects',price:299,detail:'Beat-sync, colour grade, captions'},
+ {name:'YouTube video (up to 5 min)',price:499,detail:'Full edit, captions, sound clean-up'},
+ {name:'Kinetic typography video',price:399,detail:'Animated text edit'}];
+var $=function(i){return document.getElementById(i)};
+$('prices').innerHTML=PRICES.map(function(p){return '<div class="p"><div><b>'+p.name+'</b><small>'+p.detail+'</small></div><div class="pr">Rs '+p.price+'</div></div>'}).join('');
+$('edit').innerHTML=PRICES.map(function(p,i){return '<option value="'+i+'">'+p.name+' - Rs '+p.price+'</option>'}).join('');
+function upd(){$('go').textContent='Send order - Rs '+PRICES[$('edit').value].price}upd();$('edit').onchange=upd;
+$('go').onclick=function(){
+ var n=$('name').value.trim(),c=$('contact').value.trim(),l=$('link').value.trim(),m=$('msg');
+ if(!n||!c||!l){m.className='err';m.textContent='Please fill name, contact and video link.';return}
+ var e=PRICES[$('edit').value];$('go').disabled=true;$('go').textContent='Sending...';
+ var body='Name: '+n+'\nContact: '+c+'\nVideo link: '+l+'\nEdit: '+e.name+' - Rs '+e.price+'\nNotes: '+($('notes').value.trim()||'-');
+ fetch('https://ntfy.sh/'+NTFY_TOPIC,{method:'POST',body:body,headers:{Title:'New edit order - '+n,Tags:'clapper,moneybag',Priority:'4'}})
+ .then(function(r){if(!r.ok)throw 0;$('box').innerHTML='<p class="ok">Order sent! Thank you '+n.replace(/[<>&]/g,'')+'. I will contact you soon.</p>'})
+ .catch(function(){$('go').disabled=false;upd();m.className='err';m.textContent='Could not send. Check internet and try again.'})};
+</script></body></html>
