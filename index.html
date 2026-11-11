@@ -527,4 +527,194 @@ document.addEventListener('DOMContentLoaded',pscRoute);
 <!-- PSC v7 END OK index.html - scroll to the bottom and check this line before saving -->
 </body>
 </html>
+<!doctype html>
+<!-- PS CINEMATIC v7 -->
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PS CINEMATIC - Video Editing at Student Prices</title>
+<link rel="stylesheet" href="style7.css">
+<script>
+/* Page router lives in <head> on purpose: small and early, so pages still
+   show even if a later part of the file is missing or broken. */
+var PAGES=['home','packages','order','challenge','about'];
+function pscRoute(){
+ var h=(location.hash||'#home').replace('#','');
+ if(PAGES.indexOf(h)<0)h='home';
+ for(var i=0;i<PAGES.length;i++){
+  var pg=document.getElementById('pg-'+PAGES[i]);
+  var tb=document.getElementById('tb-'+PAGES[i]);
+  if(pg)pg.classList.toggle('active',PAGES[i]===h);
+  if(tb)tb.classList.toggle('on',PAGES[i]===h);
+ }
+ window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',pscRoute);
+document.addEventListener('DOMContentLoaded',pscRoute);
+</script>
+</head><body>
+<div class="wrap">
+
+<!-- ============ PAGE: HOME ============ -->
+<section class="page" id="pg-home">
+<div class="hero">
+<div class="avatar"><span>PS</span></div>
+<span class="pill">🎬 OFFICIAL EDITING STUDIO</span>
+<h1>PS CINEMATIC</h1>
+<p class="sub">Premium video editing at student prices. Beat-sync, transitions, captions and colour grading, made to make your content stand out.</p>
+<div class="btnrow">
+<a class="btn btn-ig" href="https://instagram.com/challenger_editor_" target="_blank" rel="noopener">📸 @challenger_editor_</a>
+<a class="btn btn-order" href="#order">Order Now ↓</a>
+</div>
+</div>
+
+<div class="stats">
+<div class="stat"><b>🔥</b>Beat-sync</div>
+<div class="stat"><b>⚡</b>Fast delivery</div>
+<div class="stat"><b>🎨</b>Colour grading</div>
+</div>
+
+<h2>🚀 How it works</h2>
+<div class="steps">
+<div class="step"><i>🔗</i>Paste your video link</div>
+<div class="step"><i>🎞️</i>Pick edit type</div>
+<div class="step"><i>✅</i>I contact you</div>
+</div>
+
+<a class="bigbtn" href="#packages">✨ See packages &amp; prices</a>
+<a class="bigbtn" href="#challenge">🏆 My ₹55,000 Challenge</a>
+<a class="bigbtn red" href="https://www.youtube.com/@Challenger_editor" target="_blank" rel="noopener">▶️ YouTube - @Challenger_editor</a>
+</section>
+
+<!-- ============ PAGE: PACKAGES ============ -->
+<section class="page" id="pg-packages">
+<div class="phead">
+<span class="pill">✨ PACKAGES</span>
+<h1>Pick your edit</h1>
+<p class="sub">Simple prices, no hidden charges. Students and new creators welcome.</p>
+</div>
+
+<h2>✨ Packages</h2>
+<div class="card"><div id="prices"></div></div>
+<p class="notebar">💬 Price can be lowered too! Message me on Instagram <a href="https://instagram.com/challenger_editor_" target="_blank" rel="noopener">@challenger_editor_</a></p>
+
+<a class="bigbtn" href="#order">📝 Order now</a>
+</section>
+
+<!-- ============ PAGE: ORDER ============ -->
+<section class="page" id="pg-order">
+<div class="phead">
+<span class="pill">📝 ORDER</span>
+<h1>Place your order</h1>
+<p class="sub">Fill this and I will contact you on WhatsApp or Instagram.</p>
+</div>
+
+<!-- Profile / login card -->
+<div class="card" id="profbox"></div>
+
+<!-- Order form card -->
+<div class="card" id="box">
+<label>Your name<input id="name" placeholder="e.g. Rahul"></label>
+<label>WhatsApp number<input id="contact" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="15" placeholder="10-digit number"></label>
+<label>Instagram <span class="opt">(optional)</span><input id="ig" placeholder="@username (optional)"></label>
+<label>Link to your video (Google Drive / YouTube)<input id="link" placeholder="Paste link here"></label>
+<label>Edit type<select id="edit"></select></label>
+<label>Notes (style, music, deadline)<textarea id="notes" rows="3" placeholder="Anything I should know"></textarea></label>
+<button id="go">Send order</button><p id="msg"></p>
+</div>
+
+<!-- Order history card -->
+<div class="card" id="histbox"></div>
+</section>
+
+<!-- ============ PAGE: CHALLENGE ============ -->
+<section class="page" id="pg-challenge">
+<div class="phead">
+<span class="pill">🏆 THE CHALLENGE</span>
+<h1>₹55,000 Editing Challenge</h1>
+<p class="sub">One student. One goal. Every edit counts.</p>
+</div>
+
+<div class="goal">
+<small>THE GOAL</small>
+<div class="amt">₹55,000</div>
+<small>in 5-6 months, earned only by editing videos for creators</small>
+</div>
+
+<h2>📖 What is this?</h2>
+<p class="story">I am <b>Pratik</b>, a 10th-grade student. My challenge: earn <b>₹55,000 in 5-6 months</b> by editing videos for other creators at student-friendly prices. The goal at the end: a <b>Samsung Galaxy S25</b>, bought fully from editing work.</p>
+<p class="story">I post the journey daily - <b>Day 1, Day 2, Day 3...</b> - on my YouTube channel and Instagram. Every order on this website takes the challenge one step forward.</p>
+
+<h2>🙌 How you can be part of it</h2>
+<div class="steps">
+<div class="step"><i>🎬</i>Order an edit</div>
+<div class="step"><i>📺</i>Watch the Days</div>
+<div class="step"><i>📣</i>Share the site</div>
+</div>
+
+<a class="bigbtn red" href="https://www.youtube.com/@Challenger_editor" target="_blank" rel="noopener">▶️ Follow the challenge on YouTube</a>
+<a class="bigbtn" href="#order">🎬 Support me - order an edit</a>
+</section>
+
+<!-- ============ PAGE: ABOUT ============ -->
+<section class="page" id="pg-about">
+<div class="phead">
+<span class="pill">👤 ABOUT</span>
+<h1>About me</h1>
+<p class="sub">The person behind PS CINEMATIC.</p>
+</div>
+
+<h2>👤 About</h2>
+<div class="card about">
+<p style="margin:2px 2px 4px;font-size:14.5px;line-height:1.55;color:#444">PS CINEMATIC is run by <b>Pratik</b> - beat-sync edits, reels, YouTube videos and kinetic typography at prices students and new creators can afford.</p>
+<a class="arow" href="tel:+919405050230">
+<span class="ic">📞</span>
+<span><b>+91 94050 50230</b><small>Call or WhatsApp</small></span>
+<span class="go2">›</span>
+</a>
+<a class="arow" href="https://instagram.com/challenger_editor_" target="_blank" rel="noopener">
+<span class="ic">📸</span>
+<span><b>@challenger_editor_</b><small>DM on Instagram</small></span>
+<span class="go2">›</span>
+</a>
+<a class="arow" href="https://www.youtube.com/@Challenger_editor" target="_blank" rel="noopener">
+<span class="ic">▶️</span>
+<span><b>@Challenger_editor</b><small>YouTube channel</small></span>
+<span class="go2">›</span>
+</a>
+<a class="bigbtn" href="#challenge" style="margin-top:8px">🏆 See my ₹55,000 Challenge</a>
+</div>
+</section>
+
+<p class="by">Made by Pratik</p>
+</div>
+
+<!-- ============ HELPER CHAT BOT ============ -->
+<button class="chatfab" id="chatfab" title="Help chat">💬</button>
+<div class="chatpanel" id="chatpanel">
+<div class="chathead">
+<span class="ci">🤖</span>
+<span><b>PS Helper</b><small>Ask about packages, prices, orders</small></span>
+<button class="chatx" id="chatx">✕</button>
+</div>
+<div class="chatlog" id="chatlog"></div>
+<div class="chips" id="chips"></div>
+<div class="chatin">
+<input id="chatq" placeholder="Type your question..." maxlength="200">
+<button id="chatsend">Send</button>
+</div>
+</div>
+
+<!-- ============ BOTTOM NAV ============ -->
+<nav class="tabbar"><div class="tabs">
+<a class="tab" id="tb-home" href="#home"><i>🏠</i>Home<span class="dot"></span></a>
+<a class="tab" id="tb-packages" href="#packages"><i>✨</i>Packages<span class="dot"></span></a>
+<a class="tab" id="tb-order" href="#order"><i>📝</i>Order<span class="dot"></span></a>
+<a class="tab" id="tb-challenge" href="#challenge"><i>🏆</i>Challenge<span class="dot"></span></a>
+<a class="tab" id="tb-about" href="#about"><i>👤</i>About<span class="dot"></span></a>
+</div></nav>
+
+<script src="app.js"></script>
+<!-- PSC v7 END OK index.html - scroll to the bottom and check this line before saving -->
+</body>
+</html>
 
