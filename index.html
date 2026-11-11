@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- PS CINEMATIC v7 -->
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PS CINEMATIC - Video Editing at Student Prices</title>
@@ -10,8 +11,7 @@ body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-s
 
 /* ===== Pages ===== */
 .page{display:none}
-.page.active{display:block;animation:fadein .25s ease}
-@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.page.active{display:block}
 
 /* ===== Insta-style gradient hero ===== */
 .hero{position:relative;margin:0 -14px;padding:44px 20px 34px;text-align:center;color:#fff;
@@ -121,7 +121,7 @@ border-top:1px solid #efe6fb;box-shadow:0 -6px 24px rgba(150,47,191,.12)}
 .chatfab{position:fixed;right:14px;bottom:84px;z-index:60;width:58px;height:58px;border-radius:50%;border:0;cursor:pointer;font-size:26px;color:#fff;display:flex;align-items:center;justify-content:center;padding:0;margin:0;
 background:linear-gradient(135deg,#962fbf,#d62976,#fa7e1e);background-size:200% auto;box-shadow:0 10px 26px rgba(214,41,118,.45);transition:.3s}
 .chatfab:hover{background-position:right center}
-.chatpanel{position:fixed;right:10px;left:10px;bottom:84px;z-index:60;max-width:430px;margin:0 auto;display:none;flex-direction:column;overflow:hidden;border-radius:22px;background:#fff;border:1px solid #efe6fb;box-shadow:0 18px 50px rgba(43,16,85,.35);animation:fadein .25s ease}
+.chatpanel{position:fixed;right:10px;left:10px;bottom:84px;z-index:60;max-width:430px;margin:0 auto;display:none;flex-direction:column;overflow:hidden;border-radius:22px;background:#fff;border:1px solid #efe6fb;box-shadow:0 18px 50px rgba(43,16,85,.35)}
 .chatpanel.open{display:flex}
 .chathead{display:flex;align-items:center;gap:10px;padding:12px 14px;color:#fff;
 background:linear-gradient(90deg,#4f5bd5,#962fbf,#d62976)}
@@ -141,7 +141,26 @@ background:linear-gradient(90deg,#4f5bd5,#962fbf,#d62976)}
 .chatin input{flex:1;margin:0;padding:11px 13px;font-size:14.5px}
 .chatin button{width:auto;margin:0;padding:0 18px;font-size:14px;flex:none}
 @media(min-width:460px){.chatpanel{left:auto;width:430px}}
-</style></head><body>
+</style>
+<script>
+/* Page router lives in <head> on purpose: small and early, so pages still
+   show even if a later part of the file is missing or broken. */
+var PAGES=['home','packages','order','challenge','about'];
+function pscRoute(){
+ var h=(location.hash||'#home').replace('#','');
+ if(PAGES.indexOf(h)<0)h='home';
+ for(var i=0;i<PAGES.length;i++){
+  var pg=document.getElementById('pg-'+PAGES[i]);
+  var tb=document.getElementById('tb-'+PAGES[i]);
+  if(pg)pg.classList.toggle('active',PAGES[i]===h);
+  if(tb)tb.classList.toggle('on',PAGES[i]===h);
+ }
+ window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',pscRoute);
+document.addEventListener('DOMContentLoaded',pscRoute);
+</script>
+</head><body>
 <div class="wrap">
 
 <!-- ============ PAGE: HOME ============ -->
@@ -315,25 +334,7 @@ var PRICES=[
 var $=function(i){return document.getElementById(i)};
 function esc(s){return String(s).replace(/[<>&]/g,'')}
 
-/* ----- page router (back button friendly) ----- */
-var PAGES=['home','packages','order','challenge','about'];
-function route(){
- var h=(location.hash||'#home').replace('#','');
- if(PAGES.indexOf(h)<0)h='home';
- PAGES.forEach(function(p){
-  $('pg-'+p).classList.toggle('active',p===h);
-  $('tb-'+p).classList.toggle('on',p===h);
- });
- window.scrollTo(0,0);
-}
-window.addEventListener('hashchange',route);
-route();
-
-/* ----- profile (saved on this device only) ----- */
-function getProf(){try{return JSON.parse(localStorage.getItem('psc_profile')||'null')}catch(e){return null}}
-function setProf(p){if(p)localStorage.setItem('psc_profile',JSON.stringify(p));else localStorage.removeItem('psc_profile')}
-function getOrders(){try{return JSON.parse(localStorage.getItem('psc_orders')||'[]')}catch(e){return[]}}
-function saveOrder(o){var a=getOrders();a.unshift(o);try{localStorage.setItem('psc_orders',JSON.stringify(a.slice(0,50)))}catch(e){}}
-
-function renderProf(){
- var p=getProf(),
+/* ----- packages & order form ----- */
+$('prices').innerHTML=PRICES.map(function(p){return '<div class="p"><div class="ic">'+p.icon+'</div><div class="t"><b>'+p.name+'</b><small>'+p.detail+'</small></div><div class="pr">Rs '+p.price+'</div></div>'}).join('');
+$('edit').innerHTML=PRICES.map(function(p,i){return '<option value="'+i+'">'+p.name+' - Rs '+p.price+'</option>'}).join('');
+function upd(){$('go').te
