@@ -67,27 +67,57 @@ function renderHist(){
  var c=$('histclr');if(c)c.onclick=function(){if(confirm('Delete all saved orders from this device?')){localStorage.removeItem('psc_orders');renderHist()}};
 }
 
-/* ----- helper chat bot (runs fully on this device) ----- */
+/* ----- helper chat bot: Hindi / Marathi / English, runs on this device ----- */
+function plist(){return PRICES.map(function(p){return p.icon+' '+p.name+' - Rs '+p.price}).join('\n')}
+var C='\n📞 WhatsApp: +91 94050 50230\n📸 Instagram: @challenger_editor_';
 var BOT_RULES=[
- {k:['price','cost','charge','kitna','rate','paisa'],r:'Here are my packages:\n✂️ Short video (up to 1 min) - Rs 199\n🔥 Reel / Short with effects - Rs 299\n▶️ YouTube video (up to 5 min) - Rs 499\n🔤 Kinetic typography - Rs 399\n\nPrice can be lowered too! Message me on Instagram @challenger_editor_'},
- {k:['package','pack','edit type','types'],r:'I do 4 types of edits:\n✂️ Short video (up to 1 min) - Rs 199\n🔥 Reel / Short with effects - Rs 299\n▶️ YouTube video (up to 5 min) - Rs 499\n🔤 Kinetic typography - Rs 399\n\nSee the Packages page for details.'},
- {k:['order','buy','book','kaise','how'],r:'Ordering is easy:\n1. Go to the Order page\n2. Paste your video link (Google Drive / YouTube)\n3. Pick your edit type and send\n\nI will contact you on WhatsApp or Instagram.'},
- {k:['delivery','time',' kab','when','fast','urgent','long'],r:'Delivery time depends on the edit type and how much work is in queue. I confirm the time with you after you order. For urgent work, DM me on Instagram @challenger_editor_.'},
- {k:['discount','lower','cheap','less','reduce','kam'],r:'Yes! Price can be lowered too. Just message me on Instagram @challenger_editor_ and we can talk.'},
- {k:['challenge','55','55000','s25','samsung'],r:'I am doing a ₹55,000 Editing Challenge: earn ₹55,000 in 5-6 months only by editing videos, to buy a Samsung Galaxy S25. I post the journey daily on YouTube. Check the Challenge page to follow along!'},
- {k:['contact','number','phone','whatsapp','call'],r:'You can reach me here:\n📞 Call / WhatsApp: +91 94050 50230\n📸 Instagram: @challenger_editor_\n▶️ YouTube: @Challenger_editor'},
- {k:['instagram','insta','dm'],r:'My Instagram is @challenger_editor_ - DM me there anytime.'},
- {k:['youtube','channel','video','subscribe'],r:'My YouTube channel is @Challenger_editor. I post the daily challenge journey there - Day 1, Day 2, Day 3...'},
- {k:['hi','hello','hey','namaste','hii'],r:'Hi! I am the PS CINEMATIC helper. Ask me about packages, prices, how to order, delivery, the ₹55,000 Challenge, or how to contact Pratik.'}
+ {k:['who made','who built','who created','who are you','who r u','your creator','developer','made you','built you','कौन','कोण','बनाया','बनवल','banaya','banavla','banvla','kaun','kon ','kone'],
+  e:'I was made by Pratik, when he was 16 years old. I am the PS CINEMATIC helper bot.',
+  h:'मुझे प्रतीक ने बनाया है, जब वह 16 साल का था। मैं PS CINEMATIC का हेल्पर बॉट हूँ।',
+  m:'मला प्रतिक ने बनवलंय, सोळा वर्षांचा असताना. मी PS CINEMATIC चा हेल्पर बॉट आहे.'},
+ {k:['thank','thx','shukriya','dhanyavad','aabhar','धन्यवाद','शुक्रिया','आभार','थँक'],
+  e:'You are welcome! 😊 Ask me anything else about editing orders.',
+  h:'आपका स्वागत है! 😊 एडिटिंग ऑर्डर के बारे में कुछ और पूछना हो तो पूछें।'},
+
+ {k:['how are you','kaise ho','kaisa hai','kasa aahes','kase aahat','कैसे हो','कसा आहेस','कसे आहात'],
+  e:'I am good, thanks! How can I help you?',h:'मैं ठीक हूँ, धन्यवाद! बताइए, क्या मदद करूँ?',m:'मी मस्त आहे, धन्यवाद! सांगा, काय मदत करू?'},
+ {k:['what can you','help','madat','madad','robot','ai ','bot ','kya kar','मदद','मदत','रोबोट','क्या कर'],
+  e:'I am a small rule-based helper bot (not a full AI). I can tell you about packages, prices, how to order, delivery, the Challenge and contact details.',
+  h:'मैं एक छोटा रूल-बेस्ड हेल्पर बॉट हूँ (पूरा AI नहीं)। पैकेज, कीमत, ऑर्डर, डिलीवरी, चैलेंज और संपर्क बता सकता हूँ।'},
+ {k:['delivery','time','kab','when','urgent','fast','kadhi','vel','डिलीव','डिलिव','समय','वेळ','कब','कधी','लगेग','लागे'],
+  h:'डिलीवरी का समय एडिट और कतार पर निर्भर है। ऑर्डर के बाद बता दूँगा। जल्दी हो तो Instagram पर @challenger_editor_ को DM करें।'},
+ {k:['price','cost','rate','kitn','kiti','kim','daam','dam','paise','paisa','much','package','pack','discount','kam','cheap','lower','कीमत','किंमत','दाम','भाव','पैसे','कितन','किती','पैकेज','पॅकेज','कम','सस्त','स्वस्त'],
+  e:'My packages:\n#\n\nPrice can be lowered too! Message me on Instagram @challenger_editor_.',
+  h:'मेरे पैकेज:\n#\n\nकीमत कम भी हो सकती है! Instagram पर @challenger_editor_ को मैसेज करें।',
+  m:'माझे पॅकेज:\n#\n\nकिंमत कमी पण होऊ शकते! Instagram वर @challenger_editor_ ला मेसेज करा.'},
+ {k:['order','buy','book','how','kaise','kase','kasa','ऑर्डर','कैसे','कसे','कशी','कसा','मागव'],
+  h:'ऑर्डर करना आसान है:\n1. Order पेज खोलें\n2. वीडियो का लिंक (Google Drive / YouTube) डालें\n3. एडिट टाइप चुनकर भेजें\n\nमैं WhatsApp या Instagram पर संपर्क करूँगा।',
+  m:'ऑर्डर करणे सोपे आहे:\n1. Order पेज उघडा\n2. व्हिडिओची लिंक (Google Drive / YouTube) टाका\n3. एडिटचा प्रकार निवडून पाठवा\n\nमी WhatsApp किंवा Instagram वर संपर्क करतो.'},
+ {k:['challenge','55','s25','samsung','चैलेंज','चॅलेंज','सैमसंग'],
+  h:'मैं ₹55,000 एडिटिंग चैलेंज कर रहा हूँ: 5-6 महीनों में सिर्फ वीडियो एडिट करके कमाकर Samsung Galaxy S25 लेना। सफर रोज़ YouTube पर। Challenge पेज देखें!'},
+
+ {k:['contact','number','phone','whatsapp','call','insta','youtube','channel','dm','sampark','संपर्क','नंबर','फोन','कॉल','इंस्टा','यूट्यूब','युट्यूब','चैनल','चॅनल'],
+  e:'Contact me:'+C+'\n▶️ YouTube: @Challenger_editor',h:'संपर्क करें / करा:'+C+'\n▶️ YouTube: @Challenger_editor'}
 ];
+var GREET=/(^|[^a-z])(hi+|hello|hey|namaste|namaskar)([^a-z]|$)|नमस्ते|नमस्कार|हाय|हैलो|हॅलो|हेलो/i;
+var MR=/[^a-z](aahe|ahe|kay|kiti|kase|kasa|mala|tumhi|pahije|havay|kuthe|kadhi|maza|majha|kara|ka)[^a-z]|आहे|काय|किती|कसे|कशी|कसा|मला|तुम्ही|माझ|पाहिजे|हवे|कुठे|कधी|करा|मी |लागेल|आणि|ॲ|ॅ|ऑ|कोण|बनवल/;
+var EN=/(^|[^a-z])(the|what|who|are|you|your|is|do|can|thanks?|thank|hi+|hello|hey|made|how|much|order|price|delivery|contact)([^a-z]|$)/;
+var FALL={e:'Sorry, I do not know that one. I can help with packages, prices, ordering, delivery and the Challenge. For anything else, WhatsApp or DM Pratik:'+C,
+ h:'माफ़ कीजिए, यह मुझे नहीं पता। मैं पैकेज, कीमत, ऑर्डर, डिलीवरी और चैलेंज में मदद कर सकता हूँ। बाकी के लिए प्रतीक को WhatsApp या DM करें:'+C,
+ m:'माफ करा, हे मला माहीत नाही. मी पॅकेज, किंमत, ऑर्डर, डिलिव्हरी आणि चॅलेंजबद्दल मदत करू शकतो. बाकीसाठी प्रतिकला WhatsApp किंवा DM करा:'+C};
+var HI={e:'Hi! I am the PS CINEMATIC helper 🤖 Ask about packages, prices, ordering, delivery, the Challenge or contact.',
+ h:'नमस्ते! मैं PS CINEMATIC हेल्पर हूँ 🤖 पैकेज, कीमत, ऑर्डर, डिलीवरी, चैलेंज या संपर्क पूछें।',
+ m:'नमस्कार! मी PS CINEMATIC हेल्पर आहे 🤖 पॅकेज, किंमत, ऑर्डर, डिलिव्हरी, चॅलेंज किंवा संपर्क विचारा.'};
+var LANG='m';
 function botReply(q){
- var s=q.toLowerCase();
+ var s=' '+q.toLowerCase()+' ';
+ if(MR.test(s))LANG='m';else if(/[\u0900-\u097f]|kitn|kaise|kab|hai|kya|kaun|kisne|tumhe/.test(s))LANG='h';else if(EN.test(s))LANG='e';
  for(var i=0;i<BOT_RULES.length;i++){
   for(var j=0;j<BOT_RULES[i].k.length;j++){
-   if(s.indexOf(BOT_RULES[i].k[j])>-1)return BOT_RULES[i].r;
+   if(s.indexOf(BOT_RULES[i].k[j])>-1)return (BOT_RULES[i][LANG]||BOT_RULES[i].h).replace('#',plist());
   }
  }
- return 'I can help with packages, prices, how to order, delivery, the ₹55,000 Challenge and contact details.\n\nFor anything else, DM @challenger_editor_ on Instagram.';
+ return GREET.test(s)?HI[LANG]:FALL[LANG];
 }
 function addBub(text,me){
  var d=document.createElement('div');d.className='bub '+(me?'me':'bot');d.textContent=text;
@@ -96,18 +126,16 @@ function addBub(text,me){
 function askBot(q){if(!q.trim())return;addBub(q,true);setTimeout(function(){addBub(botReply(q),false)},350)}
 $('chatfab').onclick=function(){
  var p=$('chatpanel');p.classList.toggle('open');
- if(p.classList.contains('open')&&!$('chatlog').children.length){
-  addBub('Hi! I am the PS CINEMATIC helper 🤖 Ask me anything, or tap a question below.',false);
- }
+ if(p.classList.contains('open')&&!$('chatlog').children.length)addBub(HI.m,false);
 };
 $('chatx').onclick=function(){$('chatpanel').classList.remove('open')};
 $('chatsend').onclick=function(){askBot($('chatq').value);$('chatq').value=''};
 $('chatq').addEventListener('keydown',function(e){if(e.key==='Enter'){askBot(this.value);this.value=''}});
-[['Packages','packages'],['Prices','price'],['How to order','how to order'],['Delivery','delivery time'],['Challenge','challenge'],['Contact','contact']].forEach(function(c){
- var b=document.createElement('button');b.className='chip';b.textContent=c[0];
- b.onclick=function(){askBot(c[1])};$('chips').appendChild(b);
+['पैकेज','कीमत','ऑर्डर कैसे','डिलीवरी','चैलेंज','संपर्क'].forEach(function(c){
+ var b=document.createElement('button');b.className='chip';b.textContent=c;
+ b.onclick=function(){askBot(c)};$('chips').appendChild(b);
 });
 
 renderProf();fillForm();renderHist();
-// PSC v7 END OK app.js - scroll to the bottom and check this line before saving
-  
+// PSC v9 END OK app.js - scroll to the bottom and check this line before saving
+ 
