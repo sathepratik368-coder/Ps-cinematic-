@@ -1,0 +1,139 @@
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#1a1a2e;background:#faf7ff;min-height:100vh;overflow-x:hidden}
+.wrap{max-width:640px;margin:0 auto;padding:0 14px 110px}
+
+/* ===== Pages ===== */
+.page{display:none}
+.page.active{display:block}
+
+/* ===== Insta-style gradient hero ===== */
+.hero{position:relative;margin:0 -14px;padding:44px 20px 34px;text-align:center;color:#fff;
+background:linear-gradient(135deg,#4f5bd5,#962fbf,#d62976,#fa7e1e,#feda75);background-size:300% 300%;animation:bgflow 12s ease infinite;border-radius:0 0 32px 32px;box-shadow:0 12px 34px rgba(150,47,191,.35)}
+@keyframes bgflow{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+.avatar{width:104px;height:104px;border-radius:50%;margin:0 auto 14px;padding:4px;background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.avatar span{width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,#2b1055,#7597de);display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:900;letter-spacing:1px;color:#fff}
+.pill{display:inline-block;padding:6px 16px;border-radius:99px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.45);font-size:12px;letter-spacing:1.5px;font-weight:600;backdrop-filter:blur(6px)}
+h1{font-size:clamp(34px,9vw,52px);margin:12px 0 6px;font-weight:900;letter-spacing:2px;line-height:1.05;text-shadow:0 4px 18px rgba(0,0,0,.3)}
+.sub{font-size:16px;opacity:.96;margin:8px auto 18px;max-width:460px;line-height:1.5}
+.btnrow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:800;padding:12px 24px;border-radius:99px;font-size:15px}
+.btn-ig{color:#fff;background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.6);backdrop-filter:blur(6px)}
+.btn-order{color:#962fbf;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.25);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+
+/* ===== Small page headers (for inner pages) ===== */
+.phead{margin:0 -14px 4px;padding:26px 20px 22px;text-align:center;color:#fff;border-radius:0 0 28px 28px;
+background:linear-gradient(135deg,#4f5bd5,#962fbf,#d62976,#fa7e1e,#feda75);background-size:300% 300%;animation:bgflow 14s ease infinite;box-shadow:0 10px 28px rgba(150,47,191,.3)}
+.phead h1{font-size:clamp(26px,7vw,36px);margin:8px 0 4px}
+.phead .sub{font-size:14.5px;margin:6px auto 0;max-width:420px}
+
+/* ===== Stats ===== */
+.stats{display:flex;gap:10px;margin:20px 0 4px}
+.stat{flex:1;text-align:center;padding:14px 6px;border-radius:18px;background:#fff;border:1px solid #efe6fb;box-shadow:0 4px 14px rgba(150,47,191,.08);font-size:12px;font-weight:600;color:#555}
+.stat b{display:block;font-size:22px;margin-bottom:2px}
+
+/* ===== Sections ===== */
+h2{font-size:21px;margin:26px 4px 12px;font-weight:800}
+.card{background:#fff;border:1px solid #efe6fb;border-radius:22px;padding:16px;box-shadow:0 6px 20px rgba(150,47,191,.09);margin-bottom:14px}
+.p{display:flex;align-items:center;gap:12px;padding:13px 2px;border-bottom:1px solid #f3ecfc}
+.p:last-child{border:0}
+.ic{font-size:24px;width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex:none;color:#fff;
+background:linear-gradient(135deg,#962fbf,#d62976);box-shadow:0 4px 12px rgba(214,41,118,.3)}
+.p .t{flex:1}.p b{display:block;font-size:15px}.p small{color:#777}
+.pr{font-weight:800;font-size:16px;color:#fff;padding:7px 13px;border-radius:12px;white-space:nowrap;
+background:linear-gradient(135deg,#fa7e1e,#d62976);box-shadow:0 4px 12px rgba(250,126,30,.35)}
+.notebar{text-align:center;font-weight:700;margin:14px 6px;padding:13px 16px;border-radius:16px;font-size:14px;line-height:1.5;color:#7b2cbf;background:#f6ecff;border:1px dashed #c77dff}
+.notebar a{color:#d62976;text-decoration:none}
+
+.steps{display:flex;gap:10px}
+.step{flex:1;text-align:center;font-size:12.5px;font-weight:600;color:#555;padding:16px 6px;border-radius:18px;background:#fff;border:1px solid #efe6fb;box-shadow:0 4px 14px rgba(150,47,191,.08)}
+.step i{display:block;font-style:normal;font-size:28px;margin-bottom:6px}
+
+/* ===== Big link buttons ===== */
+.bigbtn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:800;font-size:16px;color:#fff;padding:15px 18px;border-radius:16px;margin-top:12px;
+background:linear-gradient(90deg,#4f5bd5,#962fbf,#d62976,#fa7e1e);background-size:250% auto;transition:.4s;box-shadow:0 8px 24px rgba(150,47,191,.4)}
+.bigbtn:hover{background-position:right center}
+.bigbtn.red{background:linear-gradient(90deg,#c4302b,#ff4e45);background-size:250% auto;box-shadow:0 8px 24px rgba(196,48,43,.35)}
+
+/* ===== Order form ===== */
+label{display:block;margin-top:14px;font-size:14px;font-weight:700;color:#333}
+label .opt{font-weight:600;color:#999;font-size:12px}
+input,select,textarea{width:100%;padding:13px;margin-top:6px;font:inherit;font-size:16px;border-radius:14px;border:1.5px solid #e3d7f5;background:#fbf9ff;color:#1a1a2e;outline:0}
+input:focus,select:focus,textarea:focus{border-color:#d62976;box-shadow:0 0 0 3px rgba(214,41,118,.15);background:#fff}
+input::placeholder,textarea::placeholder{color:#aaa}
+button{margin-top:20px;width:100%;padding:16px;font-size:17px;font-weight:800;border:0;border-radius:16px;color:#fff;cursor:pointer;
+background:linear-gradient(90deg,#4f5bd5,#962fbf,#d62976,#fa7e1e);background-size:250% auto;transition:.4s;box-shadow:0 8px 24px rgba(150,47,191,.4)}
+button:hover{background-position:right center}
+button:disabled{opacity:.6}
+.ok{font-weight:700;font-size:17px;text-align:center;padding:22px 4px;color:#2d6a4f}
+.err{color:#d00000;font-weight:600;font-size:14px;margin:10px 2px 0}
+
+/* ===== Profile & history ===== */
+.hello{display:flex;align-items:center;gap:12px}
+.hello .mini{width:52px;height:52px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:900;
+background:linear-gradient(135deg,#2b1055,#7597de);padding:3px;border:2px solid transparent;background-clip:padding-box;box-shadow:0 0 0 2px #d62976}
+.hello .t{flex:1}.hello b{font-size:16px}.hello small{display:block;color:#777;font-size:12.5px}
+.linkbtn{background:none;border:0;box-shadow:none;width:auto;padding:6px 12px;margin:0;font-size:13px;color:#d62976;font-weight:700;cursor:pointer;text-decoration:underline}
+.mini-note{font-size:12px;color:#999;margin:10px 2px 0;line-height:1.5}
+.hist{display:flex;align-items:center;gap:10px;padding:11px 2px;border-bottom:1px solid #f3ecfc;font-size:14px}
+.hist:last-child{border:0}
+.hist .d{font-size:12px;color:#999;white-space:nowrap}
+.hist .t{flex:1;font-weight:600}
+.hist .pr{font-size:13px;padding:4px 10px}
+.empty{text-align:center;color:#999;font-size:13.5px;padding:14px 4px;line-height:1.5}
+
+/* ===== Challenge page ===== */
+.goal{position:relative;overflow:hidden;text-align:center;color:#fff;border-radius:22px;padding:22px 16px;margin-top:16px;
+background:linear-gradient(135deg,#2b1055,#7597de);box-shadow:0 10px 28px rgba(43,16,85,.35)}
+.goal .amt{font-size:clamp(34px,10vw,46px);font-weight:900;letter-spacing:1px;background:linear-gradient(90deg,#feda75,#fa7e1e,#feda75);-webkit-background-clip:text;background-clip:text;color:transparent}
+.goal small{display:block;font-size:13px;opacity:.9;margin-top:4px}
+.story{font-size:15px;line-height:1.65;color:#333;margin:14px 4px}
+.story b{color:#962fbf}
+
+/* ===== About page ===== */
+.about{display:flex;flex-direction:column;gap:10px}
+.arow{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;background:#fbf9ff;border:1px solid #efe6fb;text-decoration:none;color:inherit}
+.arow .ic{width:42px;height:42px;font-size:20px;border-radius:12px}
+.arow b{display:block;font-size:15px}.arow small{color:#777}
+.arow .go2{margin-left:auto;color:#c77dff;font-weight:800}
+
+.by{text-align:center;color:#999;margin-top:30px;font-size:13.5px;font-weight:600}
+
+/* ===== Bottom tab nav (Instagram style) ===== */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
+border-top:1px solid #efe6fb;box-shadow:0 -6px 24px rgba(150,47,191,.12)}
+.tabs{max-width:640px;margin:0 auto;display:flex}
+.tab{flex:1;text-align:center;text-decoration:none;color:#8a8a9e;padding:9px 2px 10px;font-size:10.5px;font-weight:700}
+.tab i{display:block;font-style:normal;font-size:22px;margin-bottom:2px;filter:grayscale(.4);opacity:.75}
+.tab.on{color:#d62976}
+.tab.on i{filter:none;opacity:1}
+.tab .dot{width:5px;height:5px;border-radius:50%;background:linear-gradient(135deg,#962fbf,#d62976);margin:3px auto 0;opacity:0}
+.tab.on .dot{opacity:1}
+
+/* ===== Helper chat bot ===== */
+.chatfab{position:fixed;right:14px;bottom:84px;z-index:60;width:58px;height:58px;border-radius:50%;border:0;cursor:pointer;font-size:26px;color:#fff;display:flex;align-items:center;justify-content:center;padding:0;margin:0;
+background:linear-gradient(135deg,#962fbf,#d62976,#fa7e1e);background-size:200% auto;box-shadow:0 10px 26px rgba(214,41,118,.45);transition:.3s}
+.chatfab:hover{background-position:right center}
+.chatpanel{position:fixed;right:10px;left:10px;bottom:84px;z-index:60;max-width:430px;margin:0 auto;display:none;flex-direction:column;overflow:hidden;border-radius:22px;background:#fff;border:1px solid #efe6fb;box-shadow:0 18px 50px rgba(43,16,85,.35)}
+.chatpanel.open{display:flex}
+.chathead{display:flex;align-items:center;gap:10px;padding:12px 14px;color:#fff;
+background:linear-gradient(90deg,#4f5bd5,#962fbf,#d62976)}
+.chathead .ci{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:18px;flex:none}
+.chathead b{font-size:15px}.chathead small{display:block;font-size:11.5px;opacity:.85}
+.chatx{margin-left:auto;background:rgba(255,255,255,.22);border:0;color:#fff;width:30px;height:30px;border-radius:50%;font-size:15px;cursor:pointer;padding:0;line-height:1}
+.chatlog{padding:12px;height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;background:#faf7ff}
+.bub{max-width:85%;padding:10px 13px;border-radius:16px;font-size:14px;line-height:1.5;white-space:pre-line}
+.bub.bot{align-self:flex-start;background:#fff;border:1px solid #efe6fb;border-bottom-left-radius:4px;box-shadow:0 2px 8px rgba(150,47,191,.07)}
+.bub.me{align-self:flex-end;color:#fff;border-bottom-right-radius:4px;background:linear-gradient(135deg,#962fbf,#d62976)}
+.bub a{color:#d62976;font-weight:700}
+.bub.me a{color:#fff;text-decoration:underline}
+.chips{display:flex;gap:6px;flex-wrap:wrap;padding:0 12px 8px;background:#faf7ff}
+.chip{border:1.5px solid #e3d7f5;background:#fff;color:#962fbf;font-size:12.5px;font-weight:700;border-radius:99px;padding:7px 12px;cursor:pointer;margin:0;width:auto;box-shadow:none}
+.chip:hover{border-color:#d62976}
+.chatin{display:flex;gap:8px;padding:10px 12px;border-top:1px solid #efe6fb;background:#fff}
+.chatin input{flex:1;margin:0;padding:11px 13px;font-size:14.5px}
+.chatin button{width:auto;margin:0;padding:0 18px;font-size:14px;flex:none}
+@media(min-width:460px){.chatpanel{left:auto;width:430px}}
+/* PSC v7 END OK style.css - paste ke neeche tak scroll karke ye line check karo */
+                                                                                                                                                                                                                                              
