@@ -1,441 +1,229 @@
+/* PS CINEMATIC v10 - Film Reel theme
+   Colors: red #d7263d, ink #1b1b1f, paper #f3ede1, card #fffaf0 */
 *{box-sizing:border-box}
 html{scroll-behavior:auto}
-body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#1a1a2e;background:#faf7ff;min-height:100vh;overflow-x:hidden}
-.wrap{max-width:640px;margin:0 auto;padding:0 14px 110px}
+body{margin:0;font-family:"Noto Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#1b1b1f;background:#f3ede1;min-height:100vh;overflow-x:hidden}
+h1,h2,.amt,.brand span{font-family:"Noto Serif",Georgia,serif}
 
-/* ===== Pages ===== */
+/* ===== Top bar ===== */
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:14px;padding:10px 18px;background:rgba(243,237,225,.94);backdrop-filter:blur(8px);border-bottom:1px solid #e3d9c6}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#1b1b1f}
+.brand img{width:34px;height:34px;border-radius:9px}
+.brand span{font-weight:900;font-size:18px;letter-spacing:1px}
+.brand b{color:#d7263d}
+.nav{margin-left:auto;display:flex;gap:2px;overflow-x:auto}
+.nav a{padding:8px 12px;border-radius:10px;text-decoration:none;color:#5b564d;font-weight:600;font-size:14.5px;white-space:nowrap}
+.nav a.on{color:#d7263d;background:#fffaf0;box-shadow:inset 0 0 0 1.5px #ecdcc8}
+
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 90px}
 .page{display:none}
 .page.active{display:block}
 
-/* ===== Insta-style gradient hero ===== */
-.hero{position:relative;margin:0 -14px;padding:44px 20px 34px;text-align:center;color:#fff;
-background:linear-gradient(135deg,#4f5bd5,#962fbf,#d62976,#fa7e1e,#feda75);background-size:300% 300%;animation:bgflow 12s ease infinite;border-radius:0 0 32px 32px;box-shadow:0 12px 34px rgba(150,47,191,.35)}
-@keyframes bgflow{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
-.avatar{width:104px;height:104px;border-radius:50%;margin:0 auto 14px;padding:4px;background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.3)}
-.avatar span{width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,#2b1055,#7597de);display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:900;letter-spacing:1px;color:#fff}
-.pill{display:inline-block;padding:6px 16px;border-radius:99px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.45);font-size:12px;letter-spacing:1.5px;font-weight:600;backdrop-filter:blur(6px)}
-h1{font-size:clamp(34px,9vw,52px);margin:12px 0 6px;font-weight:900;letter-spacing:2px;line-height:1.05;text-shadow:0 4px 18px rgba(0,0,0,.3)}
-.sub{font-size:16px;opacity:.96;margin:8px auto 18px;max-width:460px;line-height:1.5}
-.btnrow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-block;text-decoration:none;font-weight:800;padding:12px 24px;border-radius:99px;font-size:15px}
-.btn-ig{color:#fff;background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.6);backdrop-filter:blur(6px)}
-.btn-order{color:#962fbf;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.25);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-
-/* ===== Small page headers (for inner pages) ===== */
-.phead{margin:0 -14px 4px;padding:26px 20px 22px;text-align:center;color:#fff;border-radius:0 0 28px 28px;
-background:linear-gradient(135deg,#4f5bd5,#962fbf,#d62976,#fa7e1e,#feda75);background-size:300% 300%;animation:bgflow 14s ease infinite;box-shadow:0 10px 28px rgba(150,47,191,.3)}
-.phead h1{font-size:clamp(26px,7vw,36px);margin:8px 0 4px}
-.phead .sub{font-size:14.5px;margin:6px auto 0;max-width:420px}
+/* ===== Hero with looping brand video ===== */
+.hero{position:relative;margin:14px 0 0;border-radius:22px;overflow:hidden;border:1px solid #e0d5c0;box-shadow:0 14px 34px rgba(27,27,31,.14)}
+.herovid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(3px) saturate(.85) brightness(1.06)}
+.heroov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(243,237,225,.93),rgba(243,237,225,.88))}
+.heroin{position:relative;padding:52px 26px 46px;text-align:left}
+.pill{display:inline-block;padding:6px 15px;border-radius:99px;background:#fffaf0;border:1.5px solid #d7263d;color:#d7263d;font-size:12px;letter-spacing:2px;font-weight:800;text-transform:uppercase}
+.hero h1{font-size:clamp(36px,8vw,56px);margin:16px 0 10px;font-weight:900;line-height:1.06;color:#1b1b1f}
+.hero h1 em{font-style:normal;color:#d7263d}
+.sub{font-size:16.5px;color:#5b564d;margin:8px 0 20px;max-width:480px;line-height:1.55}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:800;padding:13px 24px;border-radius:12px;font-size:15.5px}
+.btn.solid{color:#fffaf0;background:#d7263d;box-shadow:0 8px 22px rgba(215,38,61,.35)}
+.btn.line{color:#1b1b1f;border:2px solid #d7263d;background:transparent}
 
 /* ===== Stats ===== */
-.stats{display:flex;gap:10px;margin:20px 0 4px}
-.stat{flex:1;text-align:center;padding:14px 6px;border-radius:18px;background:#fff;border:1px solid #efe6fb;box-shadow:0 4px 14px rgba(150,47,191,.08);font-size:12px;font-weight:600;color:#555}
-.stat b{display:block;font-size:22px;margin-bottom:2px}
+.stats{display:flex;gap:10px;margin:18px 0 2px}
+.stat{flex:1;text-align:center;padding:13px 6px;border-radius:14px;background:#fffaf0;border:1px solid #e7dcc7;box-shadow:0 3px 10px rgba(27,27,31,.06);font-size:12.5px;font-weight:600;color:#5b564d}
+.stat b{display:block;font-size:21px;margin-bottom:2px}
 
-/* ===== Sections ===== */
-h2{font-size:21px;margin:26px 4px 12px;font-weight:800}
-.card{background:#fff;border:1px solid #efe6fb;border-radius:22px;padding:16px;box-shadow:0 6px 20px rgba(150,47,191,.09);margin-bottom:14px}
-.p{display:flex;align-items:center;gap:12px;padding:13px 2px;border-bottom:1px solid #f3ecfc}
-.p:last-child{border:0}
-.ic{font-size:24px;width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex:none;color:#fff;
-background:linear-gradient(135deg,#962fbf,#d62976);box-shadow:0 4px 12px rgba(214,41,118,.3)}
-.p .t{flex:1}.p b{display:block;font-size:15px}.p small{color:#777}
-.pr{font-weight:800;font-size:16px;color:#fff;padding:7px 13px;border-radius:12px;white-space:nowrap;
-background:linear-gradient(135deg,#fa7e1e,#d62976);box-shadow:0 4px 12px rgba(250,126,30,.35)}
-.notebar{text-align:center;font-weight:700;margin:14px 6px;padding:13px 16px;border-radius:16px;font-size:14px;line-height:1.5;color:#7b2cbf;background:#f6ecff;border:1px dashed #c77dff}
-.notebar a{color:#d62976;text-decoration:none}
+/* ===== Section headings ===== */
+h2{font-size:23px;margin:28px 2px 12px;font-weight:900;color:#1b1b1f}
+h2::after{content:"";display:block;width:44px;height:3px;background:#d7263d;margin-top:6px;border-radius:2px}
 
-.steps{display:flex;gap:10px}
-.step{flex:1;text-align:center;font-size:12.5px;font-weight:600;color:#555;padding:16px 6px;border-radius:18px;background:#fff;border:1px solid #efe6fb;box-shadow:0 4px 14px rgba(150,47,191,.08)}
-.step i{display:block;font-style:normal;font-size:28px;margin-bottom:6px}
+/* ===== Film reel marquee (services preview) ===== */
+.reelmar{overflow:hidden;border-radius:14px;background:#121216;padding:10px 0;border:2px solid #d7263d}
+.reeltrack{display:flex;gap:14px;width:max-content;animation:reelmove 26s linear infinite}
+@keyframes reelmove{to{transform:translateX(-50%)}}
+.reelframe{flex:none;width:150px;padding:14px 10px;border-radius:8px;background:#1d1d23;border:1.5px solid #3a3a44;text-align:center;color:#f3ede1}
+.reelframe i{display:block;font-style:normal;font-size:26px;margin-bottom:6px}
+.reelframe b{font-size:12.5px;font-weight:600;letter-spacing:.3px}
+.reelframe.red{background:#d7263d;border-color:#d7263d}
 
-/* ===== Big link buttons ===== */
-.bigbtn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:800;font-size:16px;color:#fff;padding:15px 18px;border-radius:16px;margin-top:12px;
-background:linear-gradient(90deg,#4f5bd5,#962fbf,#d62976,#fa7e1e);background-size:250% auto;transition:.4s;box-shadow:0 8px 24px rgba(150,47,191,.4)}
-.bigbtn:hover{background-position:right center}
-.bigbtn.red{background:linear-gradient(90deg,#c4302b,#ff4e45);background-size:250% auto;box-shadow:0 8px 24px rgba(196,48,43,.35)}
+/* ===== Steps ===== */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.step{background:#fffaf0;border:1px solid #e7dcc7;border-radius:16px;padding:16px 14px;box-shadow:0 4px 12px rgba(27,27,31,.06)}
+.step i{display:inline-block;font-style:normal;font-weight:900;font-size:22px;color:#d7263d;font-family:"Noto Serif",Georgia,serif}
+.step b{display:block;font-size:14.5px;margin:6px 0 3px;color:#1b1b1f}
+.step small{color:#6d675c;font-size:12.5px;line-height:1.45}
 
-/* ===== Order form ===== */
-label{display:block;margin-top:14px;font-size:14px;font-weight:700;color:#333}
-label .opt{font-weight:600;color:#999;font-size:12px}
-input,select,textarea{width:100%;padding:13px;margin-top:6px;font:inherit;font-size:16px;border-radius:14px;border:1.5px solid #e3d7f5;background:#fbf9ff;color:#1a1a2e;outline:0}
-input:focus,select:focus,textarea:focus{border-color:#d62976;box-shadow:0 0 0 3px rgba(214,41,118,.15);background:#fff}
-input::placeholder,textarea::placeholder{color:#aaa}
-button{margin-top:20px;width:100%;padding:16px;font-size:17px;font-weight:800;border:0;border-radius:16px;color:#fff;cursor:pointer;
-background:linear-gradient(90deg,#4f5bd5,#962fbf,#d62976,#fa7e1e);background-size:250% auto;transition:.4s;box-shadow:0 8px 24px rgba(150,47,191,.4)}
-button:hover{background-position:right center}
+/* ===== Big buttons ===== */
+.bigbtn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:800;font-size:16px;color:#fffaf0;padding:15px 18px;border-radius:14px;margin-top:14px;background:#d7263d;box-shadow:0 8px 22px rgba(215,38,61,.32)}
+.bigbtn.dark{background:#1b1b1f;box-shadow:0 8px 22px rgba(27,27,31,.3)}
+
+/* ===== Inner page header ===== */
+.phead{margin:14px 0 6px;padding:30px 20px 26px;border-radius:22px;background:#fffaf0;border:1px solid #e7dcc7;box-shadow:0 8px 20px rgba(27,27,31,.08)}
+.phead h1{font-size:clamp(28px,6.5vw,40px);margin:12px 0 6px;font-weight:900;color:#1b1b1f}
+.phead .sub{margin:6px 0 0;font-size:15px}
+
+/* ===== Service cards ===== */
+.svcgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.svc{background:#fffaf0;border:1px solid #e7dcc7;border-radius:16px;padding:16px;box-shadow:0 4px 12px rgba(27,27,31,.06);display:flex;flex-direction:column}
+.svc .ic{font-size:24px;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#d7263d;color:#fff;box-shadow:0 4px 12px rgba(215,38,61,.3)}
+.svc b{display:block;font-size:15.5px;margin:10px 0 2px;color:#1b1b1f}
+.svc small{color:#6d675c;line-height:1.45}
+.svc .pr{margin-top:12px;font-weight:800;font-size:15px;color:#d7263d}
+.svc .pr.dm{color:#1b1b1f;font-weight:700;font-size:13.5px}
+.notebar{text-align:center;font-weight:700;margin:16px 2px;padding:13px 16px;border-radius:14px;font-size:14px;line-height:1.5;color:#d7263d;background:#fffaf0;border:2px dashed #d7263d}
+.notebar a{color:#1b1b1f;text-decoration:underline}
+
+/* ===== Cards & form ===== */
+.card{background:#fffaf0;border:1px solid #e7dcc7;border-radius:18px;padding:16px;box-shadow:0 5px 16px rgba(27,27,31,.07);margin-top:14px}
+label{display:block;margin-top:14px;font-size:14px;font-weight:700;color:#3c382f}
+label .opt{font-weight:600;color:#9a9384;font-size:12px}
+.hint{display:block;font-weight:400;color:#8a8375;font-size:12px;margin-top:5px}
+input,select,textarea{width:100%;padding:13px;margin-top:6px;font:inherit;font-size:16px;border-radius:12px;border:1.5px solid #ddd2ba;background:#fff;color:#1b1b1f;outline:0}
+input:focus,select:focus,textarea:focus{border-color:#d7263d;box-shadow:0 0 0 3px rgba(215,38,61,.14)}
+input::placeholder,textarea::placeholder{color:#a9a294}
+button{margin-top:18px;width:100%;padding:15px;font-size:16.5px;font-weight:800;border:0;border-radius:13px;color:#fffaf0;cursor:pointer;background:#d7263d;box-shadow:0 8px 22px rgba(215,38,61,.32)}
 button:disabled{opacity:.6}
-.ok{font-weight:700;font-size:17px;text-align:center;padding:22px 4px;color:#2d6a4f}
-.err{color:#d00000;font-weight:600;font-size:14px;margin:10px 2px 0}
+.ok{font-weight:700;font-size:16.5px;text-align:center;padding:20px 4px;color:#22633f}
+.err{color:#b3261e;font-weight:600;font-size:14px;margin:10px 2px 0}
 
 /* ===== Profile & history ===== */
 .hello{display:flex;align-items:center;gap:12px}
-.hello .mini{width:52px;height:52px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:900;
-background:linear-gradient(135deg,#2b1055,#7597de);padding:3px;border:2px solid transparent;background-clip:padding-box;box-shadow:0 0 0 2px #d62976}
-.hello .t{flex:1}.hello b{font-size:16px}.hello small{display:block;color:#777;font-size:12.5px}
-.linkbtn{background:none;border:0;box-shadow:none;width:auto;padding:6px 12px;margin:0;font-size:13px;color:#d62976;font-weight:700;cursor:pointer;text-decoration:underline}
-.mini-note{font-size:12px;color:#999;margin:10px 2px 0;line-height:1.5}
-.hist{display:flex;align-items:center;gap:10px;padding:11px 2px;border-bottom:1px solid #f3ecfc;font-size:14px}
-.hist:last-child{border:0}
-.hist .d{font-size:12px;color:#999;white-space:nowrap}
-.hist .t{flex:1;font-weight:600}
-.hist .pr{font-size:13px;padding:4px 10px}
-.empty{text-align:center;color:#999;font-size:13.5px;padding:14px 4px;line-height:1.5}
+.hello .mini{width:50px;height:50px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;color:#fffaf0;font-size:19px;font-weight:900;background:#d7263d;box-shadow:0 0 0 3px #f3ede1,0 0 0 5px #d7263d}
+.hello .t{flex:1}.hello b{font-size:15.5px}.hello small{display:block;color:#8a8375;font-size:12.5px}
+.linkbtn{background:none;border:0;box-shadow:none;width:auto;padding:6px 10px;margin:0;font-size:13px;color:#d7263d;font-weight:700;cursor:pointer;text-decoration:underline}
+.mini-note{font-size:12px;color:#9a9384;margin:10px 2px 0;line-height:1.5}
+.hist{display:flex;align-items:center;gap:10px;padding:11px 2px;border-bottom:1px solid #ece2cd;font-size:14px}
+.hist:last-of-type{border:0}
+.hist .d{color:#8a8375;font-size:12.5px;width:56px;flex:none}
+.hist .t{flex:1}
+.hist .pr{font-weight:800;color:#d7263d}
+.empty{color:#8a8375;font-size:13.5px;line-height:1.5;margin:10px 2px 4px}
 
-/* ===== Challenge page ===== */
-.goal{position:relative;overflow:hidden;text-align:center;color:#fff;border-radius:22px;padding:22px 16px;margin-top:16px;
-background:linear-gradient(135deg,#2b1055,#7597de);box-shadow:0 10px 28px rgba(43,16,85,.35)}
-.goal .amt{font-size:clamp(34px,10vw,46px);font-weight:900;letter-spacing:1px;background:linear-gradient(90deg,#feda75,#fa7e1e,#feda75);-webkit-background-clip:text;background-clip:text;color:transparent}
-.goal small{display:block;font-size:13px;opacity:.9;margin-top:4px}
-.story{font-size:15px;line-height:1.65;color:#333;margin:14px 4px}
-.story b{color:#962fbf}
+/* ===== Challenge ===== */
+.goal{text-align:center;margin:18px 0 4px;padding:24px 16px;border-radius:18px;background:#1b1b1f;color:#f3ede1;border:2px solid #d7263d;box-shadow:0 10px 26px rgba(27,27,31,.25)}
+.goal small{display:block;letter-spacing:2px;font-size:11.5px;color:#cbb9a8}
+.goal .amt{font-size:clamp(40px,10vw,58px);font-weight:900;color:#d7263d;margin:6px 0;text-shadow:0 0 26px rgba(215,38,61,.5)}
+.story{font-size:15px;line-height:1.65;color:#3c382f;margin:8px 2px}
+.story b{color:#d7263d}
 
-/* ===== About page ===== */
-.about{display:flex;flex-direction:column;gap:10px}
-.arow{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;background:#fbf9ff;border:1px solid #efe6fb;text-decoration:none;color:inherit}
-.arow .ic{width:42px;height:42px;font-size:20px;border-radius:12px}
-.arow b{display:block;font-size:15px}.arow small{color:#777}
-.arow .go2{margin-left:auto;color:#c77dff;font-weight:800}
+/* ===== About ===== */
+.abio{margin:4px 2px 10px;font-size:14.5px;line-height:1.6;color:#3c382f}
+.arow{display:flex;align-items:center;gap:12px;padding:13px 4px;border-bottom:1px solid #ece2cd;text-decoration:none;color:#1b1b1f}
+.arow:last-of-type{border:0}
+.arow .ic{font-size:20px;width:42px;height:42px;border-radius:12px;background:#f3ede1;border:1px solid #e0d5c0;display:flex;align-items:center;justify-content:center;flex:none}
+.arow b{font-size:15px}.arow small{display:block;color:#8a8375;font-size:12.5px}
+.arow .go2{margin-left:auto;color:#d7263d;font-size:22px;font-weight:800}
 
-.by{text-align:center;color:#999;margin-top:30px;font-size:13.5px;font-weight:600}
+/* ===== Footer ===== */
+.by{display:flex;align-items:center;justify-content:center;gap:9px;text-align:center;margin:34px 0 4px;font-size:14.5px;font-weight:700;color:#5b564d}
+.bylogo{width:30px;height:30px;border-radius:8px}
+.langrow{text-align:center;margin:8px 0 0;font-size:13.5px;color:#8a8375}
+.langbtn{background:none;border:0;box-shadow:none;width:auto;display:inline-block;padding:4px 9px;margin:0 2px;font-size:13.5px;font-weight:700;color:#8a8375;cursor:pointer;border-radius:8px}
+.langbtn.cur{color:#fffaf0;background:#d7263d;text-decoration:none}
 
-/* ===== Bottom tab nav (Instagram style) ===== */
-.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
-border-top:1px solid #efe6fb;box-shadow:0 -6px 24px rgba(150,47,191,.12)}
-.tabs{max-width:640px;margin:0 auto;display:flex}
-.tab{flex:1;text-align:center;text-decoration:none;color:#8a8a9e;padding:9px 2px 10px;font-size:10.5px;font-weight:700}
-.tab i{display:block;font-style:normal;font-size:22px;margin-bottom:2px;filter:grayscale(.4);opacity:.75}
-.tab.on{color:#d62976}
-.tab.on i{filter:none;opacity:1}
-.tab .dot{width:5px;height:5px;border-radius:50%;background:linear-gradient(135deg,#962fbf,#d62976);margin:3px auto 0;opacity:0}
-.tab.on .dot{opacity:1}
-
-/* ===== Helper chat bot ===== */
-.chatfab{position:fixed;right:14px;bottom:84px;z-index:60;width:58px;height:58px;border-radius:50%;border:0;cursor:pointer;font-size:26px;color:#fff;display:flex;align-items:center;justify-content:center;padding:0;margin:0;
-background:linear-gradient(135deg,#962fbf,#d62976,#fa7e1e);background-size:200% auto;box-shadow:0 10px 26px rgba(214,41,118,.45);transition:.3s}
-.chatfab:hover{background-position:right center}
-.chatpanel{position:fixed;right:10px;left:10px;bottom:84px;z-index:60;max-width:430px;margin:0 auto;display:none;flex-direction:column;overflow:hidden;border-radius:22px;background:#fff;border:1px solid #efe6fb;box-shadow:0 18px 50px rgba(43,16,85,.35)}
+/* ===== Chatbot ===== */
+.chatfab{position:fixed;right:14px;bottom:52px;z-index:60;width:56px;height:56px;border-radius:50%;border:2px solid #f3ede1;cursor:pointer;font-size:24px;color:#fffaf0;display:flex;align-items:center;justify-content:center;padding:0;margin:0;background:#d7263d;box-shadow:0 10px 26px rgba(215,38,61,.45)}
+.chatpanel{position:fixed;right:10px;left:10px;bottom:52px;z-index:60;max-width:430px;margin:0 auto;display:none;flex-direction:column;overflow:hidden;border-radius:18px;background:#fffaf0;border:2px solid #d7263d;box-shadow:0 18px 50px rgba(27,27,31,.35)}
 .chatpanel.open{display:flex}
-.chathead{display:flex;align-items:center;gap:10px;padding:12px 14px;color:#fff;
-background:linear-gradient(90deg,#4f5bd5,#962fbf,#d62976)}
-.chathead .ci{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:18px;flex:none}
-.chathead b{font-size:15px}.chathead small{display:block;font-size:11.5px;opacity:.85}
-.chatx{margin-left:auto;background:rgba(255,255,255,.22);border:0;color:#fff;width:30px;height:30px;border-radius:50%;font-size:15px;cursor:pointer;padding:0;line-height:1}
-.chatlog{padding:12px;height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;background:#faf7ff}
-.bub{max-width:85%;padding:10px 13px;border-radius:16px;font-size:14px;line-height:1.5;white-space:pre-line}
-.bub.bot{align-self:flex-start;background:#fff;border:1px solid #efe6fb;border-bottom-left-radius:4px;box-shadow:0 2px 8px rgba(150,47,191,.07)}
-.bub.me{align-self:flex-end;color:#fff;border-bottom-right-radius:4px;background:linear-gradient(135deg,#962fbf,#d62976)}
-.bub a{color:#d62976;font-weight:700}
-.bub.me a{color:#fff;text-decoration:underline}
-.chips{display:flex;gap:6px;flex-wrap:wrap;padding:0 12px 8px;background:#faf7ff}
-.chip{border:1.5px solid #e3d7f5;background:#fff;color:#962fbf;font-size:12.5px;font-weight:700;border-radius:99px;padding:7px 12px;cursor:pointer;margin:0;width:auto;box-shadow:none}
-.chip:hover{border-color:#d62976}
-.chatin{display:flex;gap:8px;padding:10px 12px;border-top:1px solid #efe6fb;background:#fff}
-.chatin input{flex:1;margin:0;padding:11px 13px;font-size:14.5px}
-.chatin button{width:auto;margin:0;padding:0 18px;font-size:14px;flex:none}
-@media(min-width:460px){.chatpanel{left:auto;width:430px}}// ===== PRATIK: change only these lines =====
-var NTFY_TOPIC='pscinematic-a6ab51ea2402';
-var PRICES=[
- {name:'Short video (up to 1 min)',price:199,detail:'Cuts, captions, music sync',icon:'✂️'},
- {name:'Reel / Short with effects',price:299,detail:'Beat-sync, colour grade, captions',icon:'🔥'},
- {name:'YouTube video (up to 5 min)',price:499,detail:'Full edit, captions, sound clean-up',icon:'▶️'},
- {name:'Kinetic typography video',price:399,detail:'Animated text edit',icon:'🔤'}];
-// ===========================================
-var $=function(i){return document.getElementById(i)};
-function esc(s){return String(s).replace(/[<>&]/g,'')}
+.chathead{display:flex;align-items:center;gap:10px;padding:12px 14px;background:#1b1b1f;color:#f3ede1}
+.chathead .ci{font-size:22px}
+.chathead b{font-size:15px}.chathead small{display:block;font-size:11.5px;color:#cbb9a8}
+.chatx{margin-left:auto;width:auto;padding:4px 10px;font-size:15px;background:none;border:0;box-shadow:none;color:#f3ede1;cursor:pointer}
+.chatlog{height:260px;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+.bub{max-width:82%;padding:9px 13px;border-radius:14px;font-size:14px;line-height:1.5;white-space:pre-line}
+.bub.bot{background:#f3ede1;border:1px solid #e0d5c0;color:#1b1b1f;align-self:flex-start;border-bottom-left-radius:4px}
+.bub.me{background:#d7263d;color:#fffaf0;align-self:flex-end;border-bottom-right-radius:4px}
+.chips{display:flex;gap:6px;padding:8px 12px;overflow-x:auto;border-top:1px solid #ece2cd}
+.chip{flex:none;width:auto;margin:0;padding:7px 13px;font-size:12.5px;font-weight:700;border-radius:99px;background:#f3ede1;color:#d7263d;border:1.5px solid #d7263d;box-shadow:none;cursor:pointer}
+.chatin{display:flex;gap:8px;padding:10px 12px;border-top:1px solid #ece2cd}
+.chatin input{margin:0;flex:1}
+.chatin button{width:auto;margin:0;padding:11px 18px;font-size:14px}
+@media(min-width:460px){.chatpanel{left:auto;width:430px}}
 
-/* ----- packages & order form ----- */
-$('prices').innerHTML=PRICES.map(function(p){return '<div class="p"><div class="ic">'+p.icon+'</div><div class="t"><b>'+p.name+'</b><small>'+p.detail+'</small></div><div class="pr">Rs '+p.price+'</div></div>'}).join('');
-$('edit').innerHTML=PRICES.map(function(p,i){return '<option value="'+i+'">'+p.name+' - Rs '+p.price+'</option>'}).join('');
-function upd(){$('go').textContent='Send order - Rs '+PRICES[$('edit').value].price}upd();$('edit').onchange=upd;
-/* keep the number field digits-only */
-$('contact').addEventListener('input',function(){this.value=this.value.replace(/[^0-9]/g,'')});
-$('go').onclick=function(){
- var n=$('name').value.trim(),c=$('contact').value.trim(),g=$('ig').value.trim(),l=$('link').value.trim(),m=$('msg');
- if(!n||!c||!l){m.className='err';m.textContent='Please fill name, WhatsApp number and video link.';return}
- if(c.length<10){m.className='err';m.textContent='Please enter a valid 10-digit WhatsApp number.';return}
- var e=PRICES[$('edit').value];$('go').disabled=true;$('go').textContent='Sending...';
- var body='Name: '+n+'\nWhatsApp: '+c+(g?'\nInstagram: '+g:'')+'\nVideo link: '+l+'\nEdit: '+e.name+' - Rs '+e.price+'\nNotes: '+($('notes').value.trim()||'-');
- fetch('https://ntfy.sh/'+NTFY_TOPIC,{method:'POST',body:body,headers:{Title:'New edit order - '+n,Tags:'clapper,moneybag',Priority:'4'}})
- .then(function(r){if(!r.ok)throw 0;
-  saveOrder({date:new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short'}),pack:e.name,price:e.price});
-  renderHist();
-  $('box').innerHTML='<p class="ok">🎉 Order sent! Thank you '+esc(n)+'. I will contact you soon.</p>'})
- .catch(function(){$('go').disabled=false;upd();m.className='err';m.textContent='Could not send. Check internet and try again.'})};
+/* ===== Film strip bar pinned at the bottom ===== */
+.filmstrip{position:fixed;left:0;right:0;bottom:0;z-index:40;height:34px;background:#121216;border-top:3px solid #d7263d;
+background-image:radial-gradient(ellipse 13px 8px at 30px 17px,#efece6 98%,transparent),radial-gradient(ellipse 13px 8px at 90px 17px,#efece6 98%,transparent);
+background-size:120px 34px;background-repeat:repeat-x}
 
-/* ----- profile (saved on this device only) ----- */
-function getProf(){try{return JSON.parse(localStorage.getItem('psc_profile')||'null')}catch(e){return null}}
-function setProf(p){if(p)localStorage.setItem('psc_profile',JSON.stringify(p));else localStorage.removeItem('psc_profile')}
-function getOrders(){try{return JSON.parse(localStorage.getItem('psc_orders')||'[]')}catch(e){return[]}}
-function saveOrder(o){var a=getOrders();a.unshift(o);try{localStorage.setItem('psc_orders',JSON.stringify(a.slice(0,50)))}catch(e){}}
+/* ===== Welcome overlay ===== */
+.welcome{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:#121216;padding:18px}
+.welcome.show{display:flex}
+.welcard{width:100%;max-width:400px;background:#f3ede1;border-radius:22px;border:2px solid #d7263d;padding:26px 22px;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.5);max-height:92vh;overflow-y:auto}
+.wellogo{width:86px;height:86px;border-radius:20px;margin:0 auto 10px}
+.welcard h1{font-size:30px;margin:4px 0 2px;color:#1b1b1f}
+.welcard h1 b{color:#d7263d}
+.welsub{font-size:14px;color:#5b564d;margin:6px 0 14px}
+.wellangs{display:flex;gap:8px;justify-content:center}
+.wellang{flex:1;width:auto;margin:0;padding:12px 6px;font-size:16px;font-weight:800;border-radius:12px;background:#fffaf0;color:#1b1b1f;border:2px solid #d7263d;box-shadow:none;cursor:pointer}
+.wellang.cur{background:#d7263d;color:#fffaf0}
+.wellogin{margin-top:16px;text-align:left;border-top:1px dashed #d8cbb2;padding-top:12px}
+.welt{font-size:13px;font-weight:700;color:#5b564d;margin:0 0 4px}
+.welgo{margin-top:16px}
+.navlang{display:flex;flex:none;margin-left:6px}
+.navlang .langbtn{padding:5px 7px;font-size:12px;margin:0 1px}
 
-function renderProf(){
- var p=getProf(),b=$('profbox');
- if(!p){
-  b.innerHTML='<div class="hello"><span class="mini">👤</span><span class="t"><b>Login / My profile</b><small>Save your name and number once, order faster.</small></span></div>'
-  +'<label>Your name<input id="pfname" placeholder="e.g. Rahul"></label>'
-  +'<label>WhatsApp number<input id="pfnum" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="15" placeholder="10-digit number"></label>'
-  +'<button id="pfsave" style="margin-top:14px">Save profile</button>'
-  +'<p class="mini-note">Saved only in this phone\'s browser. No password needed. Clearing browser data removes it.</p>';
-  $('pfnum').addEventListener('input',function(){this.value=this.value.replace(/[^0-9]/g,'')});
-  $('pfsave').onclick=function(){
-   var n=$('pfname').value.trim(),c=$('pfnum').value.trim();
-   if(!n){alert('Please enter your name.');return}
-   if(c.length<10){alert('Please enter a valid 10-digit WhatsApp number.');return}
-   setProf({name:n,num:c});renderProf();fillForm();renderHist();
-  };
- }else{
-  b.innerHTML='<div class="hello"><span class="mini">'+esc(p.name.charAt(0).toUpperCase())+'</span><span class="t"><b>Hi, '+esc(p.name)+'!</b><small>'+esc(p.num)+' · profile on this device</small></span><button class="linkbtn" id="pfout">Log out</button></div>';
-  $('pfout').onclick=function(){if(confirm('Log out from this device? Your order history stays saved.')){setProf(null);renderProf();fillForm();renderHist()}};
- }
-}
-function fillForm(){
- var p=getProf();
- if(p){$('name').value=p.name;$('contact').value=p.num}
-}
-function renderHist(){
- var a=getOrders(),b=$('histbox'),p=getProf(),html='<b style="font-size:15px">🧾 My orders '+(p?'':'(this device)')+'</b>';
- if(!a.length){html+='<p class="empty">No orders yet from this device.<br>Your orders will show here after you place one.</p>'}
- else{html+=a.map(function(o){return '<div class="hist"><span class="d">'+esc(o.date)+'</span><span class="t">'+esc(o.pack)+'</span><span class="pr">Rs '+esc(o.price)+'</span></div>'}).join('')}
- if(a.length){html+='<div style="text-align:right;margin-top:8px"><button class="linkbtn" id="histclr">Clear my order history</button></div>'}
- b.innerHTML=html;
- var c=$('histclr');if(c)c.onclick=function(){if(confirm('Delete all saved orders from this device?')){localStorage.removeItem('psc_orders');renderHist()}};
-}
+/* ===== Before/After demo slider ===== */
+.ba{position:relative;height:230px;border-radius:18px;overflow:hidden;border:1px solid #e0d5c0;box-shadow:0 8px 20px rgba(27,27,31,.12);margin-top:4px}
+.ba>div{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.ba-before{background:linear-gradient(135deg,#5a5a5e,#3a3a40)}
+.ba-before span{font-family:"Noto Serif",serif;font-weight:900;font-size:30px;color:#cfcfcf;letter-spacing:2px}
+.ba-after{background:linear-gradient(135deg,#d7263d,#7a1030 55%,#141826);clip-path:inset(0 0 0 50%)}
+.ba-after span{font-family:"Noto Serif",serif;font-weight:900;font-size:30px;color:#fffaf0;letter-spacing:1px;text-shadow:0 3px 14px rgba(0,0,0,.5)}
+.ba input{position:absolute;left:0;right:0;bottom:10px;width:72%;margin:0 auto;accent-color:#d7263d;background:none;border:0;box-shadow:none;padding:0}
 
-/* ----- helper chat bot (runs fully on this device) ----- */
-var BOT_RULES=[
- {k:['price','cost','charge','kitna','rate','paisa'],r:'Here are my packages:\n✂️ Short video (up to 1 min) - Rs 199\n🔥 Reel / Short with effects - Rs 299\n▶️ YouTube video (up to 5 min) - Rs 499\n🔤 Kinetic typography - Rs 399\n\nPrice can be lowered too! Message me on Instagram @challenger_editor_'},
- {k:['package','pack','edit type','types'],r:'I do 4 types of edits:\n✂️ Short video (up to 1 min) - Rs 199\n🔥 Reel / Short with effects - Rs 299\n▶️ YouTube video (up to 5 min) - Rs 499\n🔤 Kinetic typography - Rs 399\n\nSee the Packages page for details.'},
- {k:['order','buy','book','kaise','how'],r:'Ordering is easy:\n1. Go to the Order page\n2. Paste your video link (Google Drive / YouTube)\n3. Pick your edit type and send\n\nI will contact you on WhatsApp or Instagram.'},
- {k:['delivery','time',' kab','when','fast','urgent','long'],r:'Delivery time depends on the edit type and how much work is in queue. I confirm the time with you after you order. For urgent work, DM me on Instagram @challenger_editor_.'},
- {k:['discount','lower','cheap','less','reduce','kam'],r:'Yes! Price can be lowered too. Just message me on Instagram @challenger_editor_ and we can talk.'},
- {k:['challenge','55','55000','s25','samsung'],r:'I am doing a ₹55,000 Editing Challenge: earn ₹55,000 in 5-6 months only by editing videos, to buy a Samsung Galaxy S25. I post the journey daily on YouTube. Check the Challenge page to follow along!'},
- {k:['contact','number','phone','whatsapp','call'],r:'You can reach me here:\n📞 Call / WhatsApp: +91 94050 50230\n📸 Instagram: @challenger_editor_\n▶️ YouTube: @Challenger_editor'},
- {k:['instagram','insta','dm'],r:'My Instagram is @challenger_editor_ - DM me there anytime.'},
- {k:['youtube','channel','video','subscribe'],r:'My YouTube channel is @Challenger_editor. I post the daily challenge journey there - Day 1, Day 2, Day 3...'},
- {k:['hi','hello','hey','namaste','hii'],r:'Hi! I am the PS CINEMATIC helper. Ask me about packages, prices, how to order, delivery, the ₹55,000 Challenge, or how to contact Pratik.'}
-];
-function botReply(q){
- var s=q.toLowerCase();
- for(var i=0;i<BOT_RULES.length;i++){
-  for(var j=0;j<BOT_RULES[i].k.length;j++){
-   if(s.indexOf(BOT_RULES[i].k[j])>-1)return BOT_RULES[i].r;
-  }
- }
- return 'I can help with packages, prices, how to order, delivery, the ₹55,000 Challenge and contact details.\n\nFor anything else, DM @challenger_editor_ on Instagram.';
-}
-function addBub(text,me){
- var d=document.createElement('div');d.className='bub '+(me?'me':'bot');d.textContent=text;
- $('chatlog').appendChild(d);$('chatlog').scrollTop=$('chatlog').scrollHeight;
-}
-function askBot(q){if(!q.trim())return;addBub(q,true);setTimeout(function(){addBub(botReply(q),false)},350)}
-$('chatfab').onclick=function(){
- var p=$('chatpanel');p.classList.toggle('open');
- if(p.classList.contains('open')&&!$('chatlog').children.length){
-  addBub('Hi! I am the PS CINEMATIC helper 🤖 Ask me anything, or tap a question below.',false);
- }
-};
-$('chatx').onclick=function(){$('chatpanel').classList.remove('open')};
-$('chatsend').onclick=function(){askBot($('chatq').value);$('chatq').value=''};
-$('chatq').addEventListener('keydown',function(e){if(e.key==='Enter'){askBot(this.value);this.value=''}});
-[['Packages','packages'],['Prices','price'],['How to order','how to order'],['Delivery','delivery time'],['Challenge','challenge'],['Contact','contact']].forEach(function(c){
- var b=document.createElement('button');b.className='chip';b.textContent=c[0];
- b.onclick=function(){askBot(c[1])};$('chips').appendChild(b);
-});
+/* ===== Quote calculator ===== */
+.qrow{display:flex;align-items:center;gap:10px;padding:11px 2px;border-bottom:1px solid #ece2cd;cursor:pointer}
+.qrow:last-of-type{border:0}
+.qrow input{width:18px;height:18px;margin:0;accent-color:#d7263d;flex:none}
+.qrow .t{flex:1;font-size:14.5px;font-weight:600}
+.qrow .pr{font-weight:800;color:#d7263d;font-size:14.5px}
+.qtot{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding:12px 14px;border-radius:12px;background:#1b1b1f;color:#f3ede1}
+.qtot b{font-size:19px;color:#ff5d73}
+.qnote{font-size:12px;color:#9a9384;margin:8px 2px 0;line-height:1.5}
 
-renderProf();fillForm();renderHist();
-// PSC v7 END OK app.js - scroll to the bottom and check this line before saving
+/* ===== FAQ ===== */
+.faq{border-bottom:1px solid #ece2cd;padding:2px 0}
+.faq:last-child{border:0}
+.faq summary{cursor:pointer;font-weight:700;font-size:14.5px;padding:12px 2px;list-style:none;color:#1b1b1f}
+.faq summary::after{content:"+";float:right;color:#d7263d;font-weight:900;font-size:18px}
+.faq[open] summary::after{content:"−"}
+.faq p{margin:0 2px 12px;font-size:13.5px;color:#5b564d;line-height:1.55}
 
-/* PSC v7 END OK style.css - paste ke neeche tak scroll karke ye line check karo */
-  <!doctype html>
-<!-- PS CINEMATIC v7 -->
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PS CINEMATIC - Video Editing at Student Prices</title>
-<link rel="stylesheet" href="style.css">
-<script>
-/* Page router lives in <head> on purpose: small and early, so pages still
-   show even if a later part of the file is missing or broken. */
-var PAGES=['home','packages','order','challenge','about'];
-function pscRoute(){
- var h=(location.hash||'#home').replace('#','');
- if(PAGES.indexOf(h)<0)h='home';
- for(var i=0;i<PAGES.length;i++){
-  var pg=document.getElementById('pg-'+PAGES[i]);
-  var tb=document.getElementById('tb-'+PAGES[i]);
-  if(pg)pg.classList.toggle('active',PAGES[i]===h);
-  if(tb)tb.classList.toggle('on',PAGES[i]===h);
- }
- window.scrollTo(0,0);
-}
-window.addEventListener('hashchange',pscRoute);
-document.addEventListener('DOMContentLoaded',pscRoute);
-</script>
-</head><body>
-<div class="wrap">
+/* ===== Challenge day grid ===== */
+.daygrid{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.daychip{padding:9px 13px;border-radius:99px;background:#fffaf0;border:1.5px solid #d7263d;color:#d7263d;font-weight:800;font-size:13px}
+.daychip.latest{background:#d7263d;color:#fffaf0;box-shadow:0 4px 14px rgba(215,38,61,.35)}
 
-<!-- ============ PAGE: HOME ============ -->
-<section class="page" id="pg-home">
-<div class="hero">
-<div class="avatar"><span>PS</span></div>
-<span class="pill">🎬 OFFICIAL EDITING STUDIO</span>
-<h1>PS CINEMATIC</h1>
-<p class="sub">Premium video editing at student prices. Beat-sync, transitions, captions and colour grading, made to make your content stand out.</p>
-<div class="btnrow">
-<a class="btn btn-ig" href="https://instagram.com/challenger_editor_" target="_blank" rel="noopener">📸 @challenger_editor_</a>
-<a class="btn btn-order" href="#order">Order Now ↓</a>
-</div>
-</div>
+/* ===== Helper page chat ===== */
+.chatcard{padding:0;overflow:hidden}
+.chatcard .chatlog{height:330px}
+.chatcard .chips{border-top:1px solid #ece2cd}
+.imgbtn{width:auto;margin:0;padding:10px 13px;font-size:17px;border-radius:12px;background:#1b1b1f;box-shadow:none}
+.sendbtn{width:auto;margin:0;padding:11px 18px;font-size:14px}
+.chatin{align-items:center}
+.chatimgprev{max-width:180px;border-radius:10px;display:block;margin-top:4px}
 
-<div class="stats">
-<div class="stat"><b>🔥</b>Beat-sync</div>
-<div class="stat"><b>⚡</b>Fast delivery</div>
-<div class="stat"><b>🎨</b>Colour grading</div>
-</div>
+/* ===== Option group chips ===== */
+.ogtitle{font-size:14px;font-weight:800;margin:16px 2px 8px;color:#3c382f}
+.ogtitle small{font-weight:600;color:#9a9384}
+.chips2{display:flex;flex-wrap:wrap;gap:8px}
+.optchip{width:auto;margin:0;padding:9px 14px;border-radius:99px;background:#fff;border:1.5px solid #ddd2ba;font-size:13px;font-weight:700;cursor:pointer;color:#3c382f;box-shadow:none}
+.optchip.on{background:#d7263d;border-color:#d7263d;color:#fffaf0}
 
-<h2>🚀 How it works</h2>
-<div class="steps">
-<div class="step"><i>🔗</i>Paste your video link</div>
-<div class="step"><i>🎞️</i>Pick edit type</div>
-<div class="step"><i>✅</i>I contact you</div>
-</div>
-
-<a class="bigbtn" href="#packages">✨ See packages &amp; prices</a>
-<a class="bigbtn" href="#challenge">🏆 My ₹55,000 Challenge</a>
-<a class="bigbtn red" href="https://www.youtube.com/@Challenger_editor" target="_blank" rel="noopener">▶️ YouTube - @Challenger_editor</a>
-</section>
-
-<!-- ============ PAGE: PACKAGES ============ -->
-<section class="page" id="pg-packages">
-<div class="phead">
-<span class="pill">✨ PACKAGES</span>
-<h1>Pick your edit</h1>
-<p class="sub">Simple prices, no hidden charges. Students and new creators welcome.</p>
-</div>
-
-<h2>✨ Packages</h2>
-<div class="card"><div id="prices"></div></div>
-<p class="notebar">💬 Price can be lowered too! Message me on Instagram <a href="https://instagram.com/challenger_editor_" target="_blank" rel="noopener">@challenger_editor_</a></p>
-
-<a class="bigbtn" href="#order">📝 Order now</a>
-</section>
-
-<!-- ============ PAGE: ORDER ============ -->
-<section class="page" id="pg-order">
-<div class="phead">
-<span class="pill">📝 ORDER</span>
-<h1>Place your order</h1>
-<p class="sub">Fill this and I will contact you on WhatsApp or Instagram.</p>
-</div>
-
-<!-- Profile / login card -->
-<div class="card" id="profbox"></div>
-
-<!-- Order form card -->
-<div class="card" id="box">
-<label>Your name<input id="name" placeholder="e.g. Rahul"></label>
-<label>WhatsApp number<input id="contact" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="15" placeholder="10-digit number"></label>
-<label>Instagram <span class="opt">(optional)</span><input id="ig" placeholder="@username (optional)"></label>
-<label>Link to your video (Google Drive / YouTube)<input id="link" placeholder="Paste link here"></label>
-<label>Edit type<select id="edit"></select></label>
-<label>Notes (style, music, deadline)<textarea id="notes" rows="3" placeholder="Anything I should know"></textarea></label>
-<button id="go">Send order</button><p id="msg"></p>
-</div>
-
-<!-- Order history card -->
-<div class="card" id="histbox"></div>
-</section>
-
-<!-- ============ PAGE: CHALLENGE ============ -->
-<section class="page" id="pg-challenge">
-<div class="phead">
-<span class="pill">🏆 THE CHALLENGE</span>
-<h1>₹55,000 Editing Challenge</h1>
-<p class="sub">One student. One goal. Every edit counts.</p>
-</div>
-
-<div class="goal">
-<small>THE GOAL</small>
-<div class="amt">₹55,000</div>
-<small>in 5-6 months, earned only by editing videos for creators</small>
-</div>
-
-<h2>📖 What is this?</h2>
-<p class="story">I am <b>Pratik</b>, a 10th-grade student. My challenge: earn <b>₹55,000 in 5-6 months</b> by editing videos for other creators at student-friendly prices. The goal at the end: a <b>Samsung Galaxy S25</b>, bought fully from editing work.</p>
-<p class="story">I post the journey daily - <b>Day 1, Day 2, Day 3...</b> - on my YouTube channel and Instagram. Every order on this website takes the challenge one step forward.</p>
-
-<h2>🙌 How you can be part of it</h2>
-<div class="steps">
-<div class="step"><i>🎬</i>Order an edit</div>
-<div class="step"><i>📺</i>Watch the Days</div>
-<div class="step"><i>📣</i>Share the site</div>
-</div>
-
-<a class="bigbtn red" href="https://www.youtube.com/@Challenger_editor" target="_blank" rel="noopener">▶️ Follow the challenge on YouTube</a>
-<a class="bigbtn" href="#order">🎬 Support me - order an edit</a>
-</section>
-
-<!-- ============ PAGE: ABOUT ============ -->
-<section class="page" id="pg-about">
-<div class="phead">
-<span class="pill">👤 ABOUT</span>
-<h1>About me</h1>
-<p class="sub">The person behind PS CINEMATIC.</p>
-</div>
-
-<h2>👤 About</h2>
-<div class="card about">
-<p style="margin:2px 2px 4px;font-size:14.5px;line-height:1.55;color:#444">PS CINEMATIC is run by <b>Pratik</b> - beat-sync edits, reels, YouTube videos and kinetic typography at prices students and new creators can afford.</p>
-<a class="arow" href="tel:+919405050230">
-<span class="ic">📞</span>
-<span><b>+91 94050 50230</b><small>Call or WhatsApp</small></span>
-<span class="go2">›</span>
-</a>
-<a class="arow" href="https://instagram.com/challenger_editor_" target="_blank" rel="noopener">
-<span class="ic">📸</span>
-<span><b>@challenger_editor_</b><small>DM on Instagram</small></span>
-<span class="go2">›</span>
-</a>
-<a class="arow" href="https://www.youtube.com/@Challenger_editor" target="_blank" rel="noopener">
-<span class="ic">▶️</span>
-<span><b>@Challenger_editor</b><small>YouTube channel</small></span>
-<span class="go2">›</span>
-</a>
-<a class="bigbtn" href="#challenge" style="margin-top:8px">🏆 See my ₹55,000 Challenge</a>
-</div>
-</section>
-
-<p class="by">Made by Pratik</p>
-</div>
-
-<!-- ============ HELPER CHAT BOT ============ -->
-<button class="chatfab" id="chatfab" title="Help chat">💬</button>
-<div class="chatpanel" id="chatpanel">
-<div class="chathead">
-<span class="ci">🤖</span>
-<span><b>PS Helper</b><small>Ask about packages, prices, orders</small></span>
-<button class="chatx" id="chatx">✕</button>
-</div>
-<div class="chatlog" id="chatlog"></div>
-<div class="chips" id="chips"></div>
-<div class="chatin">
-<input id="chatq" placeholder="Type your question..." maxlength="200">
-<button id="chatsend">Send</button>
-</div>
-</div>
-
-<!-- ============ BOTTOM NAV ============ -->
-<nav class="tabbar"><div class="tabs">
-<a class="tab" id="tb-home" href="#home"><i>🏠</i>Home<span class="dot"></span></a>
-<a class="tab" id="tb-packages" href="#packages"><i>✨</i>Packages<span class="dot"></span></a>
-<a class="tab" id="tb-order" href="#order"><i>📝</i>Order<span class="dot"></span></a>
-<a class="tab" id="tb-challenge" href="#challenge"><i>🏆</i>Challenge<span class="dot"></span></a>
-<a class="tab" id="tb-about" href="#about"><i>👤</i>About<span class="dot"></span></a>
-</div></nav>
-
-<script src="app.js"></script>
-<!-- PSC v7 END OK index.html - scroll to the bottom and check this line before saving -->
-</body>
-</html>
-                
+/* ===== Track page ===== */
+.orsep{text-align:center;color:#9a9384;font-size:12.5px;margin:10px 0 0}
+.trcard{margin-top:14px;padding:14px 16px;border-radius:14px;background:#f3ede1;border:1.5px solid #e0d5c0}
+.trtop{display:flex;align-items:center;gap:10px}
+.trid{margin-left:auto;font-size:13px;color:#5b564d}
+.stbadge{display:inline-block;padding:6px 15px;border-radius:99px;font-weight:800;font-size:13px}
+.st-pending{background:#fff3cd;color:#8a6d00}
+.st-progress{background:#ffe1e5;color:#d7263d}
+.st-done{background:#d8f3dc;color:#22633f}
+.trline{font-size:14px;color:#3c382f;margin:9px 2px 0}
+.okid{font-size:15px;margin-top:6px}
+.hid{display:block;color:#9a9384;font-size:11.5px;font-weight:400}

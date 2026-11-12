@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sathepratik368-coder.github.io/Ps-cinematic-/sitemap.xml

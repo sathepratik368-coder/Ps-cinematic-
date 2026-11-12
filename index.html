@@ -1,13 +1,32 @@
 <!doctype html>
-<!-- PS CINEMATIC v7 -->
-<html lang="en"><head><meta charset="utf-8">
+<!-- PS CINEMATIC v10 - Film Reel design -->
+<html lang="en"><head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PS CINEMATIC - Video Editing at Student Prices</title>
-<link rel="stylesheet" href="style7.css">
+<title>PS CINEMATIC - Video Editing at Student Prices | Reels, YouTube, Vlogs</title>
+<meta name="description" content="PS CINEMATIC: affordable video editing by Pratik - reels and shorts with beat-sync, YouTube videos, vlogs, thumbnails, graphic design, English word-sync captions and intros. Order in 1 minute.">
+<meta name="keywords" content="video editing, reel editing, youtube video editing, vlog editing, thumbnail design, graphic design, video captions, affordable video editor india, student video editor, PS Cinematic, challenger editor">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://sathepratik368-coder.github.io/Ps-cinematic-/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PS CINEMATIC - Video Editing at Student Prices">
+<meta property="og:description" content="Beat-synced cuts, word-by-word captions, clean grading. By a young editor on a Rs 55,000 challenge.">
+<meta property="og:url" content="https://sathepratik368-coder.github.io/Ps-cinematic-/">
+<meta property="og:image" content="https://sathepratik368-coder.github.io/Ps-cinematic-/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700;900&family=Noto+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"PS CINEMATIC","url":"https://sathepratik368-coder.github.io/Ps-cinematic-/","description":"Affordable video editing: reels and shorts, YouTube videos, vlogs, thumbnails, graphic design, English word-sync captions, intros and outros.","telephone":"+919405050230","founder":{"@type":"Person","name":"Pratik"},"sameAs":["https://instagram.com/challenger_editor_","https://www.youtube.com/@Challenger_editor"],"areaServed":"IN","priceRange":"Rs 199 - Rs 499"}
+</script>
 <script>
 /* Page router lives in <head> on purpose: small and early, so pages still
    show even if a later part of the file is missing or broken. */
-var PAGES=['home','packages','order','challenge','about'];
+var PAGES=['home','services','order','track','challenge','about','helper'];
 function pscRoute(){
  var h=(location.hash||'#home').replace('#','');
  if(PAGES.indexOf(h)<0)h='home';
@@ -23,168 +42,244 @@ window.addEventListener('hashchange',pscRoute);
 document.addEventListener('DOMContentLoaded',pscRoute);
 </script>
 </head><body>
+
+<header class="topbar">
+ <a class="brand" href="#home"><img src="logo.png" alt="PS Cinematic logo"><span>PS&nbsp;<b>CINEMATIC</b></span></a>
+ <nav class="nav">
+  <a id="tb-home" href="#home" data-i18n="nav_home">Home</a>
+  <a id="tb-services" href="#services" data-i18n="nav_services">Services</a>
+  <a id="tb-order" href="#order" data-i18n="nav_order">Order</a>
+  <a id="tb-track" href="#track" data-i18n="nav_track">📦 Track</a>
+  <a id="tb-challenge" href="#challenge" data-i18n="nav_challenge">Challenge</a>
+  <a id="tb-about" href="#about" data-i18n="nav_about">About</a>
+  <a id="tb-helper" href="#helper" data-i18n="nav_helper">🤖 Helper</a>
+ </nav>
+ <div class="navlang">
+  <button class="langbtn" data-lang="en">EN</button><button class="langbtn" data-lang="hi">हिं</button><button class="langbtn" data-lang="mr">मरा</button>
+ </div>
+</header>
+
+<!-- ============ WELCOME OVERLAY (first visit) ============ -->
+<div class="welcome" id="welcome">
+ <div class="welcard">
+  <img src="logo.png" alt="PS Cinematic" class="wellogo">
+  <h1>PS <b>CINEMATIC</b></h1>
+  <p class="welsub" data-i18n="wel_sub">Choose your language / अपनी भाषा चुनें / तुमची भाषा निवडा</p>
+  <div class="wellangs">
+   <button class="wellang" data-wlang="hi">हिंदी</button>
+   <button class="wellang" data-wlang="en">English</button>
+   <button class="wellang" data-wlang="mr">मराठी</button>
+  </div>
+  <div class="wellogin">
+   <p class="welt" data-i18n="wel_login">Login (optional) - save your name and number for faster orders</p>
+   <input id="welname" data-i18n-ph="f_name" placeholder="Your name">
+   <input id="welnum" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="15" data-i18n-ph="f_num_ph" placeholder="WhatsApp number">
+  </div>
+  <button class="welgo" id="welgo" data-i18n="wel_go">Enter the site →</button>
+ </div>
+</div>
+
 <div class="wrap">
 
 <!-- ============ PAGE: HOME ============ -->
 <section class="page" id="pg-home">
 <div class="hero">
-<div class="avatar"><span>PS</span></div>
-<span class="pill">🎬 OFFICIAL EDITING STUDIO</span>
-<h1>PS CINEMATIC</h1>
-<p class="sub">Premium video editing at student prices. Beat-sync, transitions, captions and colour grading, made to make your content stand out.</p>
-<div class="btnrow">
-<a class="btn btn-ig" href="https://instagram.com/challenger_editor_" target="_blank" rel="noopener">📸 @challenger_editor_</a>
-<a class="btn btn-order" href="#order">Order Now ↓</a>
-</div>
+ <video class="herovid" autoplay muted loop playsinline preload="metadata" poster="bg.jpg"><source src="bg.mp4" type="video/mp4"></video>
+ <div class="heroov"></div>
+ <div class="heroin">
+  <span class="pill" data-i18n="hero_pill">🎬 Official editing studio</span>
+  <h1><span data-i18n="hero_t1">Your videos,</span><br><em data-i18n="hero_t2">edited like cinema.</em></h1>
+  <p class="sub" data-i18n="hero_sub">Beat-synced cuts, word-by-word captions, clean grading. By a young editor on a mission.</p>
+  <div class="btnrow">
+   <a class="btn solid" href="#order" data-i18n="cta_order">Order your edit</a>
+   <a class="btn line" href="#challenge" data-i18n="cta_chal">See the ₹55,000 challenge</a>
+  </div>
+ </div>
 </div>
 
 <div class="stats">
-<div class="stat"><b>🔥</b>Beat-sync</div>
-<div class="stat"><b>⚡</b>Fast delivery</div>
-<div class="stat"><b>🎨</b>Colour grading</div>
+<div class="stat"><b>🔥</b><span data-i18n="stat1">Beat-sync</span></div>
+<div class="stat"><b>⚡</b><span data-i18n="stat2">Fast delivery</span></div>
+<div class="stat"><b>🎨</b><span data-i18n="stat3">Colour grading</span></div>
 </div>
 
-<h2>🚀 How it works</h2>
+<h2 data-i18n="home_strip_t">What I edit</h2>
+<div class="reelmar"><div class="reeltrack" id="reeltrack"></div></div>
+
+<h2 data-i18n="how_t">How it works</h2>
 <div class="steps">
-<div class="step"><i>🔗</i>Paste your video link</div>
-<div class="step"><i>🎞️</i>Pick edit type</div>
-<div class="step"><i>✅</i>I contact you</div>
+<div class="step"><i>1</i><b data-i18n="s1t">Send your video</b><small data-i18n="s1d">Drive link, set to "Anyone with the link"</small></div>
+<div class="step"><i>2</i><b data-i18n="s2t">Tell me the style</b><small data-i18n="s2d">Reel, vlog, long video</small></div>
+<div class="step"><i>3</i><b data-i18n="s3t">I edit it</b><small data-i18n="s3d">Hook, cuts, captions, SFX</small></div>
+<div class="step"><i>4</i><b data-i18n="s4t">You get it back</b><small data-i18n="s4d">Review and ask for changes</small></div>
 </div>
 
-<a class="bigbtn" href="#packages">✨ See packages &amp; prices</a>
-<a class="bigbtn" href="#challenge">🏆 My ₹55,000 Challenge</a>
-<a class="bigbtn red" href="https://www.youtube.com/@Challenger_editor" target="_blank" rel="noopener">▶️ YouTube - @Challenger_editor</a>
+<a class="bigbtn" href="#services" data-i18n="home_see">✨ See services &amp; prices</a>
+
+<h2 data-i18n="why_t">Why PS CINEMATIC</h2>
+<div class="steps">
+<div class="step"><i>💰</i><b data-i18n="w1t">Student prices</b><small data-i18n="w1d">Fits a student or new creator budget</small></div>
+<div class="step"><i>🗣️</i><b data-i18n="w2t">Direct chat</b><small data-i18n="w2d">You talk to the editor himself</small></div>
+<div class="step"><i>⚡</i><b data-i18n="w3t">Fast delivery</b><small data-i18n="w3d">Quick turnaround on every order</small></div>
+<div class="step"><i>🎵</i><b data-i18n="w4t">Beat-sync specialist</b><small data-i18n="w4d">Cuts that land exactly on the beat</small></div>
+</div>
+
+<h2 data-i18n="samp_t">See the difference</h2>
+<div class="ba" id="ba">
+ <div class="ba-before"><span data-i18n="ba_raw">RAW</span></div>
+ <div class="ba-after" id="baafter"><span data-i18n="ba_edit">EDITED ✨</span></div>
+ <input type="range" id="barange" min="0" max="100" value="50" aria-label="before after slider">
+</div>
+<p class="mini-note" data-i18n="samp_note">Effect demo - real work samples are on my YouTube channel.</p>
+<a class="bigbtn dark" href="https://www.youtube.com/@Challenger_editor" target="_blank" rel="noopener">▶️ YouTube - @Challenger_editor</a>
 </section>
 
-<!-- ============ PAGE: PACKAGES ============ -->
-<section class="page" id="pg-packages">
+<!-- ============ PAGE: SERVICES ============ -->
+<section class="page" id="pg-services">
 <div class="phead">
-<span class="pill">✨ PACKAGES</span>
-<h1>Pick your edit</h1>
-<p class="sub">Simple prices, no hidden charges. Students and new creators welcome.</p>
+<span class="pill" data-i18n="sv_pill">What I edit</span>
+<h1 data-i18n="sv_h1">Pick your edit</h1>
+<p class="sub" data-i18n="sv_sub">Simple prices, no hidden charges. Students and new creators welcome.</p>
 </div>
 
-<h2>✨ Packages</h2>
-<div class="card"><div id="prices"></div></div>
-<p class="notebar">💬 Price can be lowered too! Message me on Instagram <a href="https://instagram.com/challenger_editor_" target="_blank" rel="noopener">@challenger_editor_</a></p>
+<div class="svcgrid" id="prices"></div>
 
-<a class="bigbtn" href="#order">📝 Order now</a>
+<h2 data-i18n="quote_t">🧮 Quote calculator</h2>
+<div class="card" id="quotebox"></div>
+
+<p class="notebar"><span data-i18n="notebar">💬 Price can be lowered too! Message me on Instagram</span> <a href="https://instagram.com/challenger_editor_" target="_blank" rel="noopener">@challenger_editor_</a></p>
+
+<a class="bigbtn" href="#order" data-i18n="sv_order">📝 Order now</a>
 </section>
 
 <!-- ============ PAGE: ORDER ============ -->
 <section class="page" id="pg-order">
 <div class="phead">
-<span class="pill">📝 ORDER</span>
-<h1>Place your order</h1>
-<p class="sub">Fill this and I will contact you on WhatsApp or Instagram.</p>
+<span class="pill" data-i18n="or_pill">Order</span>
+<h1 data-i18n="or_h1">Order in 1 minute</h1>
+<p class="sub" data-i18n="or_sub">Fill this and I will contact you on WhatsApp or Instagram.</p>
 </div>
 
-<!-- Profile / login card -->
 <div class="card" id="profbox"></div>
 
-<!-- Order form card -->
 <div class="card" id="box">
-<label>Your name<input id="name" placeholder="e.g. Rahul"></label>
-<label>WhatsApp number<input id="contact" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="15" placeholder="10-digit number"></label>
-<label>Instagram <span class="opt">(optional)</span><input id="ig" placeholder="@username (optional)"></label>
-<label>Link to your video (Google Drive / YouTube)<input id="link" placeholder="Paste link here"></label>
-<label>Edit type<select id="edit"></select></label>
-<label>Notes (style, music, deadline)<textarea id="notes" rows="3" placeholder="Anything I should know"></textarea></label>
+<label><span data-i18n="f_name">Your name</span><input id="name" data-i18n-ph="f_name_ph" placeholder="e.g. Rahul"></label>
+<label><span data-i18n="f_num">WhatsApp number</span><input id="contact" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="15" data-i18n-ph="f_num_ph" placeholder="10-digit number"></label>
+<label><span>Instagram <span class="opt" data-i18n="f_opt">(optional)</span></span><input id="ig" placeholder="@username"></label>
+<label><span data-i18n="f_link">Link to your video (Google Drive / YouTube)</span><input id="link" data-i18n-ph="f_link_ph" placeholder="Paste link here">
+<small class="hint" data-i18n="f_link_hint">Tip: set the Drive link to "Anyone with the link".</small></label>
+<label><span data-i18n="f_type">Edit type</span><select id="edit"></select></label>
+<div id="optgroups"></div>
+<label><span data-i18n="f_notes">Notes (style, music, deadline)</span><textarea id="notes" rows="3" data-i18n-ph="f_notes_ph" placeholder="Anything I should know"></textarea></label>
 <button id="go">Send order</button><p id="msg"></p>
 </div>
 
-<!-- Order history card -->
 <div class="card" id="histbox"></div>
+
+<h2 data-i18n="faq_t">❓ FAQ</h2>
+<div class="card" id="faqbox"></div>
+</section>
+
+<!-- ============ PAGE: TRACK ============ -->
+<section class="page" id="pg-track">
+<div class="phead">
+<span class="pill" data-i18n="tr_pill">📦 Track</span>
+<h1 data-i18n="tr_h1">Track your order</h1>
+<p class="sub" data-i18n="tr_sub">Enter your order ID or WhatsApp number.</p>
+</div>
+<div class="card">
+<label><span data-i18n="tr_id">Order ID</span><input id="trid" data-i18n-ph="tr_id_ph" placeholder="e.g. PSC-SAMPLE"></label>
+<p class="orsep" data-i18n="tr_or">or</p>
+<label><span data-i18n="tr_ph">WhatsApp number</span><input id="trnum" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="15" data-i18n-ph="f_num_ph" placeholder="10-digit number"></label>
+<button id="trgo" data-i18n="tr_btn">Check status</button><p id="trmsg"></p>
+<div id="trresult"></div>
+</div>
+<div class="card" id="trown"></div>
 </section>
 
 <!-- ============ PAGE: CHALLENGE ============ -->
 <section class="page" id="pg-challenge">
 <div class="phead">
-<span class="pill">🏆 THE CHALLENGE</span>
-<h1>₹55,000 Editing Challenge</h1>
-<p class="sub">One student. One goal. Every edit counts.</p>
+<span class="pill" data-i18n="ch_pill">🏆 The challenge</span>
+<h1 data-i18n="ch_h1">₹55,000 Editing Challenge</h1>
+<p class="sub" data-i18n="ch_sub">One student. One goal. Every edit counts.</p>
 </div>
 
 <div class="goal">
-<small>THE GOAL</small>
+<small data-i18n="ch_goal">THE GOAL</small>
 <div class="amt">₹55,000</div>
-<small>in 5-6 months, earned only by editing videos for creators</small>
+<small data-i18n="ch_goal2">in 5-6 months, earned only by editing videos for creators</small>
 </div>
 
-<h2>📖 What is this?</h2>
-<p class="story">I am <b>Pratik</b>, a 10th-grade student. My challenge: earn <b>₹55,000 in 5-6 months</b> by editing videos for other creators at student-friendly prices. The goal at the end: a <b>Samsung Galaxy S25</b>, bought fully from editing work.</p>
-<p class="story">I post the journey daily - <b>Day 1, Day 2, Day 3...</b> - on my YouTube channel and Instagram. Every order on this website takes the challenge one step forward.</p>
+<h2 data-i18n="ch_what">📖 What is this?</h2>
+<p class="story" data-i18n="ch_s1">I am Pratik, a 10th-grade student. My challenge: earn ₹55,000 in 5-6 months by editing videos for other creators at student-friendly prices. The goal at the end: a Samsung Galaxy S25, bought fully from editing work.</p>
+<p class="story" data-i18n="ch_s2">I post the journey daily - Day 1, Day 2, Day 3... - on my YouTube channel and Instagram. Every order on this website takes the challenge one step forward.</p>
 
-<h2>🙌 How you can be part of it</h2>
+<h2 data-i18n="day_t">📅 Challenge days</h2>
+<div class="daygrid" id="daygrid"></div>
+<p class="mini-note" data-i18n="day_note">New Day videos come on YouTube and Instagram. Amount earned so far is shared in the Day videos, not here.</p>
+
+<h2 data-i18n="ch_help">🙌 How you can be part of it</h2>
 <div class="steps">
-<div class="step"><i>🎬</i>Order an edit</div>
-<div class="step"><i>📺</i>Watch the Days</div>
-<div class="step"><i>📣</i>Share the site</div>
+<div class="step"><i>🎬</i><b data-i18n="ch_b1">Order an edit</b></div>
+<div class="step"><i>📺</i><b data-i18n="ch_b2">Watch the Days</b></div>
+<div class="step"><i>📣</i><b data-i18n="ch_b3">Share the site</b></div>
 </div>
 
-<a class="bigbtn red" href="https://www.youtube.com/@Challenger_editor" target="_blank" rel="noopener">▶️ Follow the challenge on YouTube</a>
-<a class="bigbtn" href="#order">🎬 Support me - order an edit</a>
+<a class="bigbtn dark" href="https://www.youtube.com/@Challenger_editor" target="_blank" rel="noopener" data-i18n="ch_yt">▶️ Follow the challenge on YouTube</a>
+<a class="bigbtn" href="#order" data-i18n="ch_support">🎬 Support me - order an edit</a>
 </section>
 
 <!-- ============ PAGE: ABOUT ============ -->
 <section class="page" id="pg-about">
 <div class="phead">
-<span class="pill">👤 ABOUT</span>
-<h1>About me</h1>
-<p class="sub">The person behind PS CINEMATIC.</p>
+<span class="pill" data-i18n="ab_pill">👤 About</span>
+<h1 data-i18n="ab_h1">About me</h1>
+<p class="sub" data-i18n="ab_sub">The person behind PS CINEMATIC.</p>
 </div>
 
-<h2>👤 About</h2>
 <div class="card about">
-<p style="margin:2px 2px 4px;font-size:14.5px;line-height:1.55;color:#444">PS CINEMATIC is run by <b>Pratik</b> - beat-sync edits, reels, YouTube videos and kinetic typography at prices students and new creators can afford.</p>
-<a class="arow" href="tel:+919405050230">
-<span class="ic">📞</span>
-<span><b>+91 94050 50230</b><small>Call or WhatsApp</small></span>
-<span class="go2">›</span>
-</a>
-<a class="arow" href="https://instagram.com/challenger_editor_" target="_blank" rel="noopener">
-<span class="ic">📸</span>
-<span><b>@challenger_editor_</b><small>DM on Instagram</small></span>
-<span class="go2">›</span>
-</a>
-<a class="arow" href="https://www.youtube.com/@Challenger_editor" target="_blank" rel="noopener">
-<span class="ic">▶️</span>
-<span><b>@Challenger_editor</b><small>YouTube channel</small></span>
-<span class="go2">›</span>
-</a>
-<a class="bigbtn" href="#challenge" style="margin-top:8px">🏆 See my ₹55,000 Challenge</a>
+<p class="abio" data-i18n="ab_bio">PS CINEMATIC is run by Pratik - beat-sync edits, reels, YouTube videos and kinetic typography at prices students and new creators can afford.</p>
+<a class="arow" href="tel:+919405050230"><span class="ic">📞</span><span><b>+91 94050 50230</b><small data-i18n="ab_call">Call or WhatsApp</small></span><span class="go2">›</span></a>
+<a class="arow" href="https://instagram.com/challenger_editor_" target="_blank" rel="noopener"><span class="ic">📸</span><span><b>@challenger_editor_</b><small data-i18n="ab_ig">DM on Instagram</small></span><span class="go2">›</span></a>
+<a class="arow" href="https://www.youtube.com/@Challenger_editor" target="_blank" rel="noopener"><span class="ic">▶️</span><span><b>@Challenger_editor</b><small data-i18n="ab_yt">YouTube channel</small></span><span class="go2">›</span></a>
+<a class="bigbtn" href="#challenge" data-i18n="ab_see">🏆 See my ₹55,000 Challenge</a>
 </div>
 </section>
 
-<p class="by">Made by Pratik</p>
+<!-- ============ PAGE: HELPER (chatbot) ============ -->
+<section class="page" id="pg-helper">
+<div class="phead">
+<span class="pill">🤖 PS Helper</span>
+<h1 data-i18n="hp_h1">Ask PS Helper</h1>
+<p class="sub" data-i18n="hp_sub">Questions about editing, prices, orders - or just say hi.</p>
 </div>
-
-<!-- ============ HELPER CHAT BOT ============ -->
-<button class="chatfab" id="chatfab" title="Help chat">💬</button>
-<div class="chatpanel" id="chatpanel">
-<div class="chathead">
-<span class="ci">🤖</span>
-<span><b>PS Helper</b><small>Ask about packages, prices, orders</small></span>
-<button class="chatx" id="chatx">✕</button>
-</div>
+<div class="card chatcard">
 <div class="chatlog" id="chatlog"></div>
 <div class="chips" id="chips"></div>
 <div class="chatin">
-<input id="chatq" placeholder="Type your question..." maxlength="200">
-<button id="chatsend">Send</button>
+<button class="imgbtn" id="chatimg" title="Image">🖼️</button>
+<input type="file" id="chatfile" accept="image/*" hidden>
+<input id="chatq" data-i18n-ph="bot_ph" placeholder="Type your question..." maxlength="200">
+<button class="sendbtn" id="chatsend" data-i18n="bot_send">Send</button>
 </div>
+</div>
+<p class="mini-note" data-i18n="hp_note">PS Helper is a small on-page bot (not a full AI). If it cannot answer, WhatsApp or DM Pratik.</p>
+</section>
+
+<p class="by"><img class="bylogo" src="logo.png" alt="PS Cinematic">Made by Pratik</p>
+<p class="langrow"><span data-i18n="lang_l">Language:</span>
+<button class="langbtn" data-lang="en">EN</button>
+<button class="langbtn" data-lang="hi">हिंदी</button>
+<button class="langbtn" data-lang="mr">मराठी</button></p>
 </div>
 
-<!-- ============ BOTTOM NAV ============ -->
-<nav class="tabbar"><div class="tabs">
-<a class="tab" id="tb-home" href="#home"><i>🏠</i>Home<span class="dot"></span></a>
-<a class="tab" id="tb-packages" href="#packages"><i>✨</i>Packages<span class="dot"></span></a>
-<a class="tab" id="tb-order" href="#order"><i>📝</i>Order<span class="dot"></span></a>
-<a class="tab" id="tb-challenge" href="#challenge"><i>🏆</i>Challenge<span class="dot"></span></a>
-<a class="tab" id="tb-about" href="#about"><i>👤</i>About<span class="dot"></span></a>
-</div></nav>
+<!-- ============ HELPER CHAT BOT ============ -->
+<a class="chatfab" href="#helper" title="PS Helper">💬</a>
+
+<div class="filmstrip" aria-hidden="true"></div>
 
 <script src="app.js"></script>
-<!-- PSC v7 END OK index.html - scroll to the bottom and check this line before saving -->
+<!-- PSC v10 END OK index.html - scroll to the bottom and check this line before saving -->
 </body>
 </html>
